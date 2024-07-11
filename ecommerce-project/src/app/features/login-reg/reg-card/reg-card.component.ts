@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { RegUserService } from '../services/reg-user.service';
 
 @Component({
   selector: 'app-reg-card',
@@ -8,7 +9,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class RegCardComponent {
 
-  loginForm = this.fb.group({
+  regForm = this.fb.group({
     firstName: [''],
     lastName: [''],
     email: [''],
@@ -16,7 +17,9 @@ export class RegCardComponent {
     confirmPassword: ['']
   })
 
+  constructor(private fb: FormBuilder, private regService: RegUserService) { }
 
-
-  constructor(private fb: FormBuilder) { }
+  registerUser(data: any) {
+    this.regService.registerUser(data);
+  }
 }
