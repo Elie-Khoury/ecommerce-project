@@ -1,0 +1,19 @@
+<div class="card-container">
+    <div class="content-wrapper">
+        <div class="content-header">
+            <h1>Create a profile</h1>
+            <h3>Already have a profile?<span>Login</span></h3>
+        </div>
+        <form id="loginForm" [formGroup]="loginForm">
+            <input placeholder="First Name" type="text" name="firstName" id="firstName" formControlName="firstName">
+            <input placeholder="Last Name" type="text" name="lastName" id="lastName" formControlName="lastName">
+            <input placeholder="Email" type="email" name="email" id="email" formControlName="email">
+            <input placeholder="Password" type="password" name="password" id="password" formControlName="password">
+            <input placeholder="Confirm Password" type="password" name="confirmPassword" id="confirmPassword"
+                formControlName="confirmPassword">
+            <button type="submit">
+                <h2>Sign Up</h2>
+            </button>
+        </form>
+    </div>
+</div>

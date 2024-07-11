@@ -1,0 +1,77 @@
+$color-light: #fafafa;
+$color-dark: #212322;
+$color-sec: #c3c3c3;
+$bg-color: #bebebe;
+
+h3 {
+    color: $color-sec;
+
+    span {
+        margin-left: 20px;
+        color: $color-dark;
+        font-weight: 600;
+    }
+}
+
+.card-container {
+    width: 30%;
+    background: $color-light;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    padding: 5%;
+}
+
+.content-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.content-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $color-sec;
+    outline: none;
+    background-color: $color-light;
+    padding-bottom: 2%;
+    font-size: 0.8em;
+    font-weight: 400;
+    color: $color-dark;
+}
+
+button {
+    width: 100%;
+    text-align: center;
+    background: $color-dark;
+    cursor: pointer;
+    border: none;
+    padding: 4% 0%;
+    margin-top: 30px;
+
+    h2 {
+        color: $color-light;
+    }
+}
