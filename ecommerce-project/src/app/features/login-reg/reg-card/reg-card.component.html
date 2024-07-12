@@ -1,10 +1,10 @@
 <div class="card-container">
     <div class="content-wrapper">
         <div class="content-header">
-            <h1>Create a profile</h1>
-            <h3>Already have a profile?<span>Login</span></h3>
+            <h1>Sign Up</h1>
+            <h3>Already have a profile?<span (click)="loginReg.toggleLogin()">Login</span></h3>
         </div>
-        <form id="loginForm" [formGroup]="loginForm">
+        <form id="regForm" [formGroup]="regForm" (ngSubmit)="registerUser(regForm.value)">
             <input placeholder="First Name" type="text" name="firstName" id="firstName" formControlName="firstName">
             <input placeholder="Last Name" type="text" name="lastName" id="lastName" formControlName="lastName">
             <input placeholder="Email" type="email" name="email" id="email" formControlName="email">

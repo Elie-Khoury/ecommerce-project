@@ -1,3 +1,8 @@
 <div class="container">
-    <app-reg-card></app-reg-card>
+    <div class="card" *ngIf="loginPage">
+        <app-login-card></app-login-card>
+    </div>
+    <div class="card" *ngIf="!loginPage">
+        <app-reg-card></app-reg-card>
+    </div>
 </div>

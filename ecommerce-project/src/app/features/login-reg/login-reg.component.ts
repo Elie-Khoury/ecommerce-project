@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class LoginRegComponent {
 
+  constructor() { }
+
+  loginPage: boolean = true;
+
+  toggleLogin() {
+    this.loginPage = !this.loginPage;
+  }
 }
