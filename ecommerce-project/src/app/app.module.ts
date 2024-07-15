@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { LoginRegComponent } from './features/login-reg/login-reg.component';
 import { RegCardComponent } from './features/login-reg/reg-card/reg-card.component';
 import { LoginCardComponent } from './features/login-reg/login-card/login-card.component';
+import { NavbarComponent } from './core/app-shell/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginRegComponent,
     RegCardComponent,
-    LoginCardComponent
+    LoginCardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
