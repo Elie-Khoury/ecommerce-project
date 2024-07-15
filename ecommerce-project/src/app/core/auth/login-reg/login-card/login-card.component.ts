@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { LoginRegComponent } from '../login-reg.component'
 import { LoginUserService } from '../services/login-user.service'
+import { ILoginRequest } from '../models/LoginRequest';
 
 @Component({
   selector: 'app-login-card',
@@ -17,7 +18,7 @@ export class LoginCardComponent {
 
   constructor(private fb: FormBuilder, private loginService: LoginUserService, public loginReg: LoginRegComponent) { }
 
-  loginUser(data: any) {
+  loginUser(data: ILoginRequest) {
     this.loginService.loginUser(data);
   }
 
