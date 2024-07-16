@@ -20,8 +20,8 @@ export class LoginUserService {
     })
 
     const response = this.http.post<ILoginResponse>(this.loginAPI, data, { headers: header }).subscribe((data) => {
-      console.log("Data:")
-      console.log(JSON.stringify(data))
+      console.log("Data:");
+      console.log(JSON.stringify(data));
     });
 
     console.log("Response:")

@@ -17,11 +17,11 @@ export const NameValidator = (control: AbstractControl,): ValidationErrors | nul
 export class RegCardComponent {
 
   regForm = this.fb.group({
-    firstName: ['', [NameValidator]],
-    lastName: ['', [NameValidator]],
-    email: [''],
-    password: [''],
-    confirmPassword: ['']
+    Firstname: ['', [NameValidator]],
+    Lastname: ['', [NameValidator]],
+    Email: [''],
+    Password: [''],
+    Rolename: ['']
   })
 
   constructor(private fb: FormBuilder, private regService: RegUserService, public loginReg: LoginRegComponent) { }

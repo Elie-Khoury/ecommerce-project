@@ -9,6 +9,8 @@ export class LoginRegComponent {
 
   constructor() { }
 
+  bgImg = 'assets/reg-bg.jpg';
+
   loginPage: boolean = true;
 
   toggleLogin() {

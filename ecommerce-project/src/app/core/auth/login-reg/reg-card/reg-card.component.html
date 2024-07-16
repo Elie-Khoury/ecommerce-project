@@ -5,12 +5,11 @@
             <h3>Already have a profile?<span (click)="loginReg.toggleLogin()">Login</span></h3>
         </div>
         <form id="regForm" [formGroup]="regForm" (ngSubmit)="registerUser(regForm.value)">
-            <input placeholder="First Name" type="text" name="firstName" id="firstName" formControlName="firstName">
-            <input placeholder="Last Name" type="text" name="lastName" id="lastName" formControlName="lastName">
-            <input placeholder="Email" type="email" name="email" id="email" formControlName="email">
-            <input placeholder="Password" type="password" name="password" id="password" formControlName="password">
-            <input placeholder="Confirm Password" type="password" name="confirmPassword" id="confirmPassword"
-                formControlName="confirmPassword">
+            <input placeholder="Firstname" type="text" name="Firstname" id="Firstname" formControlName="Firstname">
+            <input placeholder="Lastname" type="text" name="Lastname" id="Lastname" formControlName="Lastname">
+            <input placeholder="Email" type="email" name="Email" id="Email" formControlName="Email">
+            <input placeholder="Password" type="password" name="Password" id="Password" formControlName="Password">
+            <input placeholder="Rolename" type="text" name="Rolename" id="Rolename" formControlName="Rolename">
             <button type="submit">
                 <h2>Sign Up</h2>
             </button>

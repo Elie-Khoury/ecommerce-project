@@ -1,7 +1,7 @@
 export interface ISignUpRequest {
-    Firstname: string,
-    Lastname: string,
-    Email: string,
-    Password: string,
-    RoleName: string
+    Firstname?: string | null,
+    Lastname?: string | null,
+    Email?: string | null,
+    Password?: string | null,
+    Rolename?: string | null,
 }
