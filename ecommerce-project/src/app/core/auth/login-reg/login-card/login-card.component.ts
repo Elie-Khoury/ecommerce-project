@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { LoginRegComponent } from '../login-reg.component'
-import { LoginUserService } from '../services/login-user.service'
 import { ILoginRequest } from '../models/LoginRequest';
 import { ILoginResponse } from '../models/LoginResponse';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-login-card',
@@ -18,15 +18,16 @@ export class LoginCardComponent {
     password: [''],
   })
 
-  constructor(private fb: FormBuilder, private loginService: LoginUserService, public loginReg: LoginRegComponent,
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthenticationService,
+    public loginReg: LoginRegComponent,
     private route: Router
   ) { }
 
   loginUser(data: ILoginRequest) {
-    this.loginService.loginUser(data).subscribe((res: ILoginResponse) => {
-      console.log('res', res);
+    this.authService.loginUser(data).subscribe((res: ILoginResponse) => {
       localStorage.setItem('token', res.Login.AccessToken);
-
       this.route.navigateByUrl('/home');
     })
   }

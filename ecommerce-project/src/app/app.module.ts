@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { RegCardComponent } from './core/auth/login-reg/reg-card/reg-card.compon
 import { LoginCardComponent } from './core/auth/login-reg/login-card/login-card.component';
 import { NavbarComponent } from './core/app-shell/navbar/navbar.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
+import { AuthInterceptorService } from './core/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
     HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+    provideClientHydration(),
   ],
   bootstrap: [AppComponent]
 })
