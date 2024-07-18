@@ -9,7 +9,9 @@ export class LoginRegComponent {
 
   constructor() { }
 
-  bgImg = 'assets/reg-bg.jpg';
+  bgImg: string = 'assets/reg-bg.jpg';
+
+  navDark: boolean = false;
 
   loginPage: boolean = true;
 

@@ -1,34 +1,34 @@
-<nav class="navbar">
+<nav class="navbar" [ngClass]="navDark ?  'dark' : 'light'">
     <div class="logo-container">
-        <img [src]="logoUrl" alt="">
+        <img [src]="imgUrls.logoUrl" alt="">
     </div>
     <div class="nav-paths">
         <a routerLink="/home">
             <h3>HOME</h3>
         </a>
-        <img class="nav-dot" src="https://img.icons8.com/?size=100&id=79003&format=png&color=fafafa" alt="">
+        <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
         <a href="">
             <h3>MEN</h3>
         </a>
-        <img class="nav-dot" src="https://img.icons8.com/?size=100&id=79003&format=png&color=fafafa" alt="">
+        <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
         <a href="">
             <h3>WOMEN</h3>
         </a>
-        <img class="nav-dot" src="https://img.icons8.com/?size=100&id=79003&format=png&color=fafafa" alt="">
+        <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
         <a href="">
             <h3>COLLECTION</h3>
         </a>
     </div>
     <div class="nav-icons">
         <div class="nav-icon">
-            <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=fafafa" alt="">
+            <img [src]="imgUrls.searchUrl" alt="">
         </div>
         <div class="nav-icon">
-            <img src="https://img.icons8.com/?size=100&id=22167&format=png&color=fafafa" alt="">
+            <img [src]="imgUrls.cartUrl" alt="">
         </div>
         <div class="nav-icon">
             <a routerLink="/login">
-                <img src="https://img.icons8.com/?size=100&id=15265&format=png&color=fafafa" alt="">
+                <img [src]="imgUrls.profileUrl" alt="">
             </a>
         </div>
     </div>
