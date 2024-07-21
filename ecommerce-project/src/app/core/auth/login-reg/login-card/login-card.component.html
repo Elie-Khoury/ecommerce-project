@@ -5,9 +5,16 @@
             <h3>Don't have an account?<span (click)="loginReg.toggleLogin()">Sign Up</span></h3>
         </div>
         <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
-            <input placeholder="Username" type="text" name="username" id="username" formControlName="username">
+
+            <small *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+                Please enter a valid email address.
+            </small>
+
+            <input placeholder="Email" type="email" name="username" id="username" formControlName="username">
+
             <input placeholder="Password" type="password" name="password" id="password" formControlName="password">
-            <button type="submit">
+
+            <button type="submit" [disabled]="loginForm.invalid">
                 <h2>Login</h2>
             </button>
         </form>

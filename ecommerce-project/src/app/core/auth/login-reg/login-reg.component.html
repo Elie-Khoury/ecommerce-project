@@ -1,5 +1,5 @@
-<div class="container">
-    <app-navbar></app-navbar>
+<div class="container" [ngStyle]="{backgroundImage: 'url(' + bgImg + ')'}">
+    <app-navbar [navDark]="navDark"></app-navbar>
     <div class="card" *ngIf="loginPage">
         <app-login-card></app-login-card>
     </div>

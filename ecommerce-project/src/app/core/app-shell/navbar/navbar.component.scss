@@ -1,4 +1,25 @@
 $color-light: #fafafa;
+$color-dark: #212322;
+
+.light {
+    .nav-paths {
+        a {
+            h3 {
+                color: $color-light;
+            }
+        }
+    }
+}
+
+.dark {
+    .nav-paths {
+        a {
+            h3 {
+                color: $color-dark;
+            }
+        }
+    }
+}
 
 .navbar {
     width: 100%;
@@ -24,7 +45,6 @@ $color-light: #fafafa;
             position: relative;
 
             h3 {
-                color: $color-light;
                 cursor: pointer;
             }
         }
