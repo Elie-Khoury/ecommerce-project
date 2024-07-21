@@ -10,7 +10,7 @@ import { RegCardComponent } from './core/auth/login-reg/reg-card/reg-card.compon
 import { LoginCardComponent } from './core/auth/login-reg/login-card/login-card.component';
 import { NavbarComponent } from './core/app-shell/navbar/navbar.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { AuthInterceptorService } from './core/services/auth-interceptor.service';
+import { AuthInterceptorService } from './core/auth/services/auth-interceptor.service';
 
 @NgModule({
   declarations: [

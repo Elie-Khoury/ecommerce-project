@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { LoginRegComponent } from '../login-reg.component'
-import { ISignUpRequest } from '../models/SignUpRequest';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { ISignUpRequest } from '../../models/SignUpRequest';
+import { AuthenticationService } from '../../services/authentication.service';
 import { CustomValidators } from '../validators/custom-validators.validator';
 
 @Component({
@@ -27,6 +27,17 @@ export class RegCardComponent {
   ) { }
 
   registerUser(data: ISignUpRequest) {
-    this.authService.registerUser(data).subscribe();
+    this.authService.registerUser(data).subscribe(
+      {
+        error: (err) => {
+          if (err.status === 401) {
+            window.alert("Something went wrong. Please try again.");
+          }
+          else if (err.status === 404) {
+            window.alert("Page not found.");
+          }
+        }
+      }
+    )
   }
 }

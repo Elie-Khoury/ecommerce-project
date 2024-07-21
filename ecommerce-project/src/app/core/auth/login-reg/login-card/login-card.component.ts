@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LoginRegComponent } from '../login-reg.component'
-import { ILoginRequest } from '../models/LoginRequest';
-import { ILoginResponse } from '../models/LoginResponse';
+import { ILoginRequest } from '../../models/LoginRequest';
+import { ILoginResponse } from '../../models/LoginResponse';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../../../services/authentication.service';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
   selector: 'app-login-card',
@@ -34,11 +34,11 @@ export class LoginCardComponent {
         },
         error: (err) => {
           if (err.status === 401) {
-            console.log("Something went wrong. Please try again.");
+            window.alert("Invalid credentials. Please try again.");
             this.router.navigateByUrl('/login');
           }
           else if (err.status === 404) {
-            console.log("Page not found.");
+            window.alert("Page not found.");
             this.router.navigateByUrl('/home');
           }
         }
