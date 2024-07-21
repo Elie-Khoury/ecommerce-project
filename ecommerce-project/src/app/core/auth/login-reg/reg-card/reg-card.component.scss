@@ -76,3 +76,8 @@ button {
         color: $color-light;
     }
 }
+
+button:disabled {
+    cursor: not-allowed;
+    background: #c3c3c3;
+}

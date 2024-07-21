@@ -5,12 +5,43 @@
             <h3>Already have a profile?<span (click)="loginReg.toggleLogin()">Login</span></h3>
         </div>
         <form id="regForm" [formGroup]="regForm" (ngSubmit)="registerUser(regForm.value)">
-            <input placeholder="Firstname" type="text" name="Firstname" id="Firstname" formControlName="Firstname">
+            <small *ngIf="regForm.get('Firstname')?.errors?.['required'] && regForm.get('Firstname')?.touched">
+                Firstname is required.
+            </small>
+            <small *ngIf="regForm.get('Firstname')?.errors?.['invalidName']">
+                Firstname can't include numbers.
+            </small>
+
+            <input placeholder=" Firstname" type="text" name="Firstname" id="Firstname" formControlName="Firstname">
+
+            <small *ngIf="regForm.get('Lastname')?.errors?.['required'] && regForm.get('Lastname')?.touched">
+                Lastname is required.
+            </small>
+            <small *ngIf="regForm.get('Lastname')?.errors?.['invalidName']">
+                Lastname can't include numbers.
+            </small>
+
             <input placeholder="Lastname" type="text" name="Lastname" id="Lastname" formControlName="Lastname">
+
+            <small *ngIf="regForm.get('Email')?.invalid && regForm.get('Email')?.touched">
+                Please enter a valid email address.
+            </small>
+
             <input placeholder="Email" type="email" name="Email" id="Email" formControlName="Email">
+
+            <small *ngIf="regForm.get('Password')?.invalid && regForm.get('Password')?.touched">
+                The password should be at least 6 characters long.
+            </small>
+
             <input placeholder="Password" type="password" name="Password" id="Password" formControlName="Password">
+
+            <small *ngIf="regForm.get('Rolename')?.errors?.['invalidRole'] && regForm.get('Rolename')?.touched">
+                Please Enter a valid role.
+            </small>
+
             <input placeholder="Rolename" type="text" name="Rolename" id="Rolename" formControlName="Rolename">
-            <button type="submit">
+
+            <button type="submit" [disabled]="regForm.invalid">
                 <h2>Sign Up</h2>
             </button>
         </form>
