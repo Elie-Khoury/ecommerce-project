@@ -11,6 +11,7 @@ import { LoginCardComponent } from './core/auth/login-reg/login-card/login-card.
 import { NavbarComponent } from './core/app-shell/navbar/navbar.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { AuthInterceptorService } from './core/auth/services/auth-interceptor.service';
+import { ProfileComponent } from './features/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AuthInterceptorService } from './core/auth/services/auth-interceptor.se
     RegCardComponent,
     LoginCardComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
