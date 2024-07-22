@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
+@import 'ag-grid-community/styles/ag-grid.css';
+/* Quartz Theme Specific CSS */
+@import 'ag-grid-community/styles/ag-theme-quartz.css';
 /*Variables*/
 
 $color-light: #fafafa;
