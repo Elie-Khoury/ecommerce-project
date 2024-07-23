@@ -8,6 +8,10 @@ $color-dark: #212322;
                 color: $color-light;
             }
         }
+
+        a::after {
+            background: $color-light;
+        }
     }
 }
 
@@ -17,6 +21,10 @@ $color-dark: #212322;
             h3 {
                 color: $color-dark;
             }
+        }
+
+        a::after {
+            background: $color-dark;
         }
     }
 }
@@ -55,7 +63,6 @@ $color-dark: #212322;
             bottom: -10px;
             width: 0%;
             height: 1px;
-            background: #fafafa;
             transition: 0.3s;
         }
 

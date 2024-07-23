@@ -25,11 +25,11 @@ export class LoginCardComponent {
     private router: Router
   ) { }
 
-  loginUser(data: ILoginRequest) {
-    this.authService.loginUser(data).subscribe(
+  login(data: ILoginRequest) {
+    console.log("Reached Card-Component");
+    this.authService.login(data).subscribe(
       {
         next: (res: ILoginResponse) => {
-          localStorage.setItem('token', res.Login.AccessToken);
           this.router.navigateByUrl('/home');
         },
         error: (err) => {

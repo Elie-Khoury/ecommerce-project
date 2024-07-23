@@ -4,6 +4,7 @@ import { LoginRegComponent } from '../login-reg.component'
 import { ISignUpRequest } from '../../models/SignUpRequest';
 import { AuthenticationService } from '../../services/authentication.service';
 import { CustomValidators } from '../validators/custom-validators.validator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reg-card',
@@ -23,21 +24,41 @@ export class RegCardComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthenticationService,
+    private router: Router,
     public loginReg: LoginRegComponent,
   ) { }
 
-  registerUser(data: ISignUpRequest) {
-    this.authService.registerUser(data).subscribe(
-      {
-        error: (err) => {
-          if (err.status === 401) {
-            window.alert("Something went wrong. Please try again.");
-          }
-          else if (err.status === 404) {
-            window.alert("Page not found.");
+  register(data: ISignUpRequest) {
+
+    if (data.Rolename?.toLowerCase() == "user") {
+      this.authService.registerUser(data).subscribe(
+        {
+          error: (err) => {
+            if (err.status === 401) {
+              window.alert("Something went wrong. Please try again.");
+            }
+            else if (err.status === 404) {
+              window.alert("Page not found.");
+            }
           }
         }
-      }
-    )
+      )
+    }
+    else {
+      this.authService.registerAdmin(data).subscribe(
+        {
+          error: (err) => {
+            if (err.status === 401) {
+              window.alert("Something went wrong. Please try again.");
+            }
+            else if (err.status === 404) {
+              window.alert("Page not found.");
+            }
+          }
+        }
+      )
+    }
+
+    this.router.navigateByUrl('/login');
   }
 }

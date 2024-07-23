@@ -8,6 +8,7 @@ import { ISignUpRequest } from '../models/SignUpRequest';
 import { ISignUpResponse } from '../models/SignUpResponse';
 import { User } from '../models/user';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -17,18 +18,22 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) { }
 
   LOGIN_API: string = env.AUTH_API + "User/Login()";
-  REG_API: string = env.AUTH_API + "User/SignUp()";
+  REG_USER_API: string = env.AUTH_API + "User/SignUp()";
+  REG_ADMIN_API: string = env.AUTH_API + "User/CreateAdminUser()";
 
   user: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
 
   private tokenExpirationTimer: any;
 
   private handleCreateUser(res: ILoginResponse) {
-    const expiresTimeStamp = new Date().getTime() + (+res.Login.ExpiresIn * 1000);
+    const decodedToken = jwtDecode(res.Login.AccessToken);
+    const expiresTimeStamp = new Date().getTime() + (decodedToken.exp ? decodedToken.exp * 1000 : 0);
     const expiresIn = new Date(expiresTimeStamp);
     const user = new User(res.Login.AccessToken, expiresIn);
     this.user.next(user);
-    // this.autoLogout((+res.Login.ExpiresIn * 1000));
+    this.autoLogout(decodedToken.exp ? decodedToken.exp * 1000 : 0);
+
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   registerUser(data: ISignUpRequest): Observable<ISignUpResponse> {
@@ -37,11 +42,23 @@ export class AuthenticationService {
     })
     return this.http.post<ISignUpResponse>
       (
-        this.REG_API, data, { headers: header }
+        this.REG_USER_API, data, { headers: header }
       );
   }
 
-  loginUser(data: ILoginRequest): Observable<ILoginResponse> {
+  registerAdmin(data: ISignUpRequest): Observable<ISignUpResponse> {
+    const header = new HttpHeaders({
+      contentType: 'application/json',
+    })
+    return this.http.post<ISignUpResponse>
+      (
+        this.REG_ADMIN_API, data, { headers: header }
+      );
+  }
+
+  login(data: ILoginRequest): Observable<ILoginResponse> {
+    console.log("Reached Auth-Service");
+
     const header = new HttpHeaders({
       contentType: 'application/json',
     })
@@ -55,9 +72,9 @@ export class AuthenticationService {
         }));
   }
 
-  logoutUser() {
+  logout() {
     this.user.next(null);
-    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     this.router.navigateByUrl('/login');
 
     if (this.tokenExpirationTimer) {
@@ -68,24 +85,28 @@ export class AuthenticationService {
 
   autoLogin() {
     if (typeof window !== 'undefined' && window.localStorage) {
-      const token = localStorage.getItem('token');
+      const userString = localStorage.getItem('user');
 
-      if (!token) {
+      if (!userString) {
         return;
       }
 
-      const loggedInUser = new User(token, new Date());
+      const user = JSON.parse(userString);
+
+      const loggedInUser = new User(user._token, user._expiresIn);
 
       if (loggedInUser.token) {
         this.user.next(loggedInUser);
-        // this.autoLogout(loggedInUser.expiresIn.getTime() - new Date().getTime());
+
+        const expirationTime = user._expiresIn.getTime() - new Date().getTime();
+        this.autoLogout(expirationTime);
       }
     }
   }
 
-  // autoLogout(expireTime: number){
-  //   setTimeout(() => {
-  //     this.logoutUser();
-  //   }, expireTime)
-  // }
+  autoLogout(expirationTime: number) {
+    this.tokenExpirationTimer = setTimeout(() => {
+      this.logout();
+    }, expirationTime)
+  }
 }

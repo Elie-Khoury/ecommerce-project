@@ -4,7 +4,7 @@
             <h1>Login</h1>
             <h3>Don't have an account?<span (click)="loginReg.toggleLogin()">Sign Up</span></h3>
         </div>
-        <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+        <form id="loginForm" [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
 
             <small *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
                 Please enter a valid email address.

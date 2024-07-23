@@ -4,7 +4,7 @@
             <h1>Sign Up</h1>
             <h3>Already have a profile?<span (click)="loginReg.toggleLogin()">Login</span></h3>
         </div>
-        <form id="regForm" [formGroup]="regForm" (ngSubmit)="registerUser(regForm.value)">
+        <form id="regForm" [formGroup]="regForm" (ngSubmit)="register(regForm.value)">
             <small *ngIf="regForm.get('Firstname')?.errors?.['required'] && regForm.get('Firstname')?.touched">
                 Firstname is required.
             </small>

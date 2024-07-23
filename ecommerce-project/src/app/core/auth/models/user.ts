@@ -1,5 +1,7 @@
 export class User {
     constructor(
+        // private name: string,
+        // private email: string,
         private _token: string,
         private _expiresIn: Date,
     ) { }

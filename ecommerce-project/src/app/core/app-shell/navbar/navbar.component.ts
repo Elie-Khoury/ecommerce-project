@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   private userSubscription!: Subscription;
 
   onLogout() {
-    this.authService.logoutUser();
+    this.authService.logout();
   }
 
   ngOnInit(): void {
