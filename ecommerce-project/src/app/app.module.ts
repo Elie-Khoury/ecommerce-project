@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AgGridAngular } from 'ag-grid-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +11,7 @@ import { LoginCardComponent } from './core/auth/login-reg/login-card/login-card.
 import { NavbarComponent } from './core/app-shell/navbar/navbar.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { AuthInterceptorService } from './core/auth/services/auth-interceptor.service';
+import { ProfileComponent } from './features/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +20,13 @@ import { AuthInterceptorService } from './core/auth/services/auth-interceptor.se
     RegCardComponent,
     LoginCardComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    AgGridAngular,
     HttpClientModule,
   ],
   providers: [
