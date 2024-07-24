@@ -5,6 +5,7 @@ import { LoginRegComponent } from './core/auth/login-reg/login-reg.component';
 import { ProfileComponent } from './features/profile/profile.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: DashboardComponent },
   { path: 'login', component: LoginRegComponent },
   { path: 'profile', component: ProfileComponent },

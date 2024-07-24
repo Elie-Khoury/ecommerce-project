@@ -26,7 +26,6 @@ export class LoginCardComponent {
   ) { }
 
   login(data: ILoginRequest) {
-    console.log("Reached Card-Component");
     this.authService.login(data).subscribe(
       {
         next: (res: ILoginResponse) => {
