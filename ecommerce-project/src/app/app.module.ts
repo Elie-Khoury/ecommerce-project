@@ -1,7 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './core/auth/state/effects/auth.effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +16,7 @@ import { NavbarComponent } from './core/app-shell/navbar/navbar.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { AuthInterceptorService } from './core/auth/services/auth-interceptor.service';
 import { ProfileComponent } from './features/profile/profile.component';
+import { authReducer } from './core/auth/state/reducers/auth.reducer';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,11 @@ import { ProfileComponent } from './features/profile/profile.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({ auth: authReducer }),
+    StoreDevtoolsModule.instrument({
+      logOnly: !isDevMode(),
+    }),
+    EffectsModule.forRoot(AuthEffects),
     HttpClientModule,
   ],
   providers: [

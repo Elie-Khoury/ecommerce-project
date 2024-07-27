@@ -27,10 +27,10 @@
             <img [src]="imgUrls.cartUrl" alt="">
         </div>
         <div class="nav-icon">
-            <a routerLink="/login" *ngIf="!isLoggedIn">
+            <a routerLink="/login" *ngIf="!(user$ | async)">
                 <img [src]="imgUrls.profileUrl" alt="">
             </a>
-            <a (click)="onLogout()" *ngIf="isLoggedIn">
+            <a (click)="onLogout()" *ngIf="(user$ | async)">
                 <h3>LOGOUT</h3>
             </a>
         </div>
