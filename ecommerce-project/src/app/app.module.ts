@@ -1,4 +1,4 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule, isDevMode, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -17,6 +17,11 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { AuthInterceptorService } from './core/auth/services/auth-interceptor.service';
 import { ProfileComponent } from './features/profile/profile.component';
 import { authReducer } from './core/auth/state/reducers/auth.reducer';
+import { HeroComponent } from './features/dashboard/components/hero/hero.component';
+import { NewProductsComponent } from './features/dashboard/components/new-products/new-products.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +31,9 @@ import { authReducer } from './core/auth/state/reducers/auth.reducer';
     LoginCardComponent,
     NavbarComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    HeroComponent,
+    NewProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +50,7 @@ import { authReducer } from './core/auth/state/reducers/auth.reducer';
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
     provideClientHydration(),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
