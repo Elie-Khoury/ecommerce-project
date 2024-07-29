@@ -74,8 +74,11 @@ $color-dark: #212322;
         }
 
         .btn-container {
+
+          z-index: 999;
+
             .btn {
-                background: none;
+                background: white;
                 border: 1.5px solid $color-dark;
                 padding: 15px 20px;
                 cursor: pointer;

@@ -1,16 +1,19 @@
 import { HttpErrorResponse, HttpEvent, HttpEventType, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { catchError, filter, from, Observable, switchMap, take, tap, throwError } from 'rxjs';
-import { AuthenticationService } from './authentication.service';
 import { Store } from '@ngrx/store';
 import { AuthState } from '../state/reducers/auth.reducer';
 import * as fromAuthActions from '../state/actions/auth.actions';
 import { selectUser } from '../state/selectors/auth.selectors';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
 
-  constructor(private authService: AuthenticationService, private store: Store<AuthState>) { }
+  constructor(
+    private router: Router,
+    private store: Store<AuthState>
+  ) { }
 
   private isRefreshing = false;
 
@@ -47,7 +50,11 @@ export class AuthInterceptorService implements HttpInterceptor {
             switchMap(user => {
               return next.handle(req.clone({ headers: new HttpHeaders({ 'JWT': user?.token ?? '' }) }));
             }),
-            catchError(err => { return throwError(() => new Error(err)) })
+            catchError(err => {
+              this.isRefreshing = false;
+              this.router.navigateByUrl('/login');
+              return throwError(() => new Error(err));
+            })
           )
         }
         else {
