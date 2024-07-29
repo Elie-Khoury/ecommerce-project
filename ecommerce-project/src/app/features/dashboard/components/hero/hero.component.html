@@ -1,0 +1,35 @@
+<div class="hero-container">
+    <app-navbar [navDark]="navDark"></app-navbar>
+    <div class="hero-wrapper">
+        <div class="title">
+            <h1 [ngStyle]="{color: imgUrls[0].titleColor}" style="padding-bottom: 40px;">
+                {{imgUrls[0].title.split(' ')[0]}}
+            </h1>
+            <h1 [ngStyle]="{color: imgUrls[0].titleColor}">
+                {{imgUrls[0].title.split(' ')[1]}}
+            </h1>
+        </div>
+        <swiper-container loop=" true" slidesPerView="1" autoplay="true" speed="2000">
+            <swiper-slide>
+                <img [src]="imgUrls[0].url" alt="">
+            </swiper-slide>
+            <swiper-slide>
+                <img [src]="imgUrls[1].url" alt="">
+            </swiper-slide>
+            <swiper-slide>
+                <img [src]="imgUrls[2].url" alt="">
+            </swiper-slide>
+        </swiper-container>
+    </div>
+    <div class="content-container">
+        <div class="sizes-container">
+            <h2>41</h2>
+            <h2>41</h2>
+            <h2>41</h2>
+        </div>
+        <div class="btn-container">
+            <button class="btn">CHECK COLLECTION</button>
+        </div>
+    </div>
+
+</div>

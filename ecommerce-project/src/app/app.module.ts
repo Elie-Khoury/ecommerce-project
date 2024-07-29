@@ -1,7 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './core/auth/state/effects/auth.effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +16,12 @@ import { NavbarComponent } from './core/app-shell/navbar/navbar.component';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { AuthInterceptorService } from './core/auth/services/auth-interceptor.service';
 import { ProfileComponent } from './features/profile/profile.component';
+import { authReducer } from './core/auth/state/reducers/auth.reducer';
+import { HeroComponent } from './features/dashboard/components/hero/hero.component';
+import { NewProductsComponent } from './features/dashboard/components/new-products/new-products.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -21,18 +31,26 @@ import { ProfileComponent } from './features/profile/profile.component';
     LoginCardComponent,
     NavbarComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    HeroComponent,
+    NewProductsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({ auth: authReducer }),
+    StoreDevtoolsModule.instrument({
+      logOnly: !isDevMode(),
+    }),
+    EffectsModule.forRoot(AuthEffects),
     HttpClientModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
     provideClientHydration(),
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

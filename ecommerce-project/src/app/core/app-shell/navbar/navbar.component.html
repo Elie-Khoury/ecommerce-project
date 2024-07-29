@@ -27,11 +27,8 @@
             <img [src]="imgUrls.cartUrl" alt="">
         </div>
         <div class="nav-icon">
-            <a routerLink="/login" *ngIf="!isLoggedIn">
+            <a routerLink="/profile">
                 <img [src]="imgUrls.profileUrl" alt="">
-            </a>
-            <a (click)="onLogout()" *ngIf="isLoggedIn">
-                <h3>LOGOUT</h3>
             </a>
         </div>
     </div>
