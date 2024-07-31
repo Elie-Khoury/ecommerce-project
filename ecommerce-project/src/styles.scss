@@ -1,14 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-@import 'ag-grid-community/styles/ag-grid.css';
-/* Quartz Theme Specific CSS */
-@import 'ag-grid-community/styles/ag-theme-quartz.css';
-/*Variables*/
 
-$color-light: #fafafa;
-$color-dark: #212322;
-$color-sec: #c3c3c3;
-$bg-color: #bebebe;
-$ff-primary: 'Inter', sans-serif;
+@import "./variables.scss";
 
 *,
 *::after,
@@ -35,6 +27,7 @@ body {
     text-rendering: optimizeSpeed;
     font-family: $ff-primary;
     color: $color-dark;
+    overflow-x: hidden;
 }
 
 img,
