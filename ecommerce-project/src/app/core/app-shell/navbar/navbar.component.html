@@ -4,31 +4,31 @@
     </div>
     <div class="nav-paths">
         <a routerLink="/home">
-            <h3>HOME</h3>
+            <h2>HOME</h2>
         </a>
         <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
         <a href="">
-            <h3>MEN</h3>
+            <h2>MEN</h2>
         </a>
         <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
         <a href="">
-            <h3>WOMEN</h3>
+            <h2>WOMEN</h2>
         </a>
         <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
         <a href="">
-            <h3>COLLECTION</h3>
+            <h2>COLLECTION</h2>
         </a>
     </div>
     <div class="nav-icons">
         <div class="nav-icon">
-            <img [src]="imgUrls.searchUrl" alt="">
+            <img [src]="imgUrls.searchUrl" alt="Search icon">
         </div>
-        <div class="nav-icon">
-            <img [src]="imgUrls.cartUrl" alt="">
+        <div class="nav-icon" (click)="toggleActive()">
+            <img [src]="imgUrls.cartUrl" alt="Cart icon">
         </div>
         <div class="nav-icon">
             <a routerLink="/profile">
-                <img [src]="imgUrls.profileUrl" alt="">
+                <img [src]="imgUrls.profileUrl" alt="Profile icon">
             </a>
         </div>
     </div>

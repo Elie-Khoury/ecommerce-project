@@ -1,5 +1,4 @@
-$color-light: #fafafa;
-$color-dark: #212322;
+@import "../../../../variables.scss";
 
 .light {
     .nav-paths {
@@ -36,6 +35,8 @@ $color-dark: #212322;
     align-items: center;
     padding: 2% 75px 0% 75px;
 
+    z-index: 999;
+
     .logo-container {
         width: 7%;
 
@@ -62,8 +63,10 @@ $color-dark: #212322;
             position: absolute;
             bottom: -10px;
             width: 0%;
-            height: 1px;
+            height: 1.5px;
             transition: 0.3s;
+            background: $color-dark;
+            border-radius: 50px;
         }
 
         a:hover::after {

@@ -18,10 +18,12 @@ import { AuthInterceptorService } from './core/auth/services/auth-interceptor.se
 import { ProfileComponent } from './features/profile/profile.component';
 import { authReducer } from './core/auth/state/reducers/auth.reducer';
 import { HeroComponent } from './features/dashboard/components/hero/hero.component';
-import { NewProductsComponent } from './features/dashboard/components/new-products/new-products.component';
-
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProductsSwiperComponent } from './shared/components/products-swiper/products-swiper.component';
+import { CartMenuComponent } from './features/dashboard/components/cart-menu/cart-menu.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { NewProductsComponent } from './features/dashboard/components/new-produc
     DashboardComponent,
     ProfileComponent,
     HeroComponent,
-    NewProductsComponent
+    CartMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,12 +47,18 @@ import { NewProductsComponent } from './features/dashboard/components/new-produc
     }),
     EffectsModule.forRoot(AuthEffects),
     HttpClientModule,
+    BrowserAnimationsModule,
+    ProductsSwiperComponent,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
     provideClientHydration(),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+}
