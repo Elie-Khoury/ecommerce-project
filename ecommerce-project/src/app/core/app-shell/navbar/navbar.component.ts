@@ -7,6 +7,8 @@ import { Store } from '@ngrx/store';
 import { selectUser } from '../../auth/state/selectors/auth.selectors';
 import { AuthState } from '../../auth/state/reducers/auth.reducer';
 import * as fromAuthActions from '../../auth/state/actions/auth.actions';
+import { CartMenuComponent } from '../../../features/dashboard/components/cart-menu/cart-menu.component';
+import { CartService } from '../../../shared/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +19,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private store: Store<AuthState>,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private cartService: CartService
   ) { }
 
   @Input() navDark!: boolean;
@@ -27,6 +30,10 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
     this.store.dispatch(fromAuthActions.logout());
+  }
+
+  toggleActive() {
+    this.cartService.toggleActive();
   }
 
   ngOnInit(): void {

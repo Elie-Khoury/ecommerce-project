@@ -20,6 +20,10 @@ import { authReducer } from './core/auth/state/reducers/auth.reducer';
 import { HeroComponent } from './features/dashboard/components/hero/hero.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsSwiperComponent } from './shared/components/products-swiper/products-swiper.component';
+import { CartMenuComponent } from './features/dashboard/components/cart-menu/cart-menu.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,7 @@ import { ProductsSwiperComponent } from './shared/components/products-swiper/pro
     DashboardComponent,
     ProfileComponent,
     HeroComponent,
+    CartMenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +48,14 @@ import { ProductsSwiperComponent } from './shared/components/products-swiper/pro
     EffectsModule.forRoot(AuthEffects),
     HttpClientModule,
     BrowserAnimationsModule,
-    ProductsSwiperComponent
+    ProductsSwiperComponent,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
     provideClientHydration(),
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

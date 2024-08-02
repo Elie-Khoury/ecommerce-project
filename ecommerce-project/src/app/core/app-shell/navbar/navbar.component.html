@@ -21,14 +21,14 @@
     </div>
     <div class="nav-icons">
         <div class="nav-icon">
-            <img [src]="imgUrls.searchUrl" alt="">
+            <img [src]="imgUrls.searchUrl" alt="Search icon">
         </div>
-        <div class="nav-icon">
-            <img [src]="imgUrls.cartUrl" alt="">
+        <div class="nav-icon" (click)="toggleActive()">
+            <img [src]="imgUrls.cartUrl" alt="Cart icon">
         </div>
         <div class="nav-icon">
             <a routerLink="/profile">
-                <img [src]="imgUrls.profileUrl" alt="">
+                <img [src]="imgUrls.profileUrl" alt="Profile icon">
             </a>
         </div>
     </div>

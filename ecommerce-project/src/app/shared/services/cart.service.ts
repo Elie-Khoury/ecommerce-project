@@ -1,16 +1,21 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { IProduct } from '../models/product';
 import { ICartItem } from '../models/cart';
+import { CartMenuComponent } from '../../features/dashboard/components/cart-menu/cart-menu.component';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  cart = signal<ICartItem[]>([]);
+  public cart = signal<ICartItem[]>([]);
+
+  public isActive = signal<boolean>(false);
 
   totalPrice = computed(() => {
-    return this.cart().reduce((acc, curr) => acc + curr.product.price, 0);
+    console.log(this.cart());
+    return this.cart().reduce((acc, curr) => acc + (curr.quantity * curr.product.price), 0);
   })
 
   constructor() { }
@@ -28,5 +33,45 @@ export class CartService {
   }
   removeFromCart(product: IProduct) {
     this.cart.update((cart) => cart.filter(i => i.product !== product));
+  }
+
+  increaseQuantity(product: IProduct) {
+    this.cart.update(currentCart => {
+      const itemIndex = currentCart.findIndex(cartItem => cartItem.product.id === product.id);
+
+      if (itemIndex !== -1) {
+        const updatedCart = [...currentCart];
+        updatedCart[itemIndex] = {
+          ...updatedCart[itemIndex],
+          quantity: updatedCart[itemIndex].quantity + 1
+        };
+
+        return updatedCart;
+      }
+
+      return currentCart;
+    });
+  }
+
+  reduceQuantity(product: IProduct) {
+    this.cart.update(currentCart => {
+      const itemIndex = currentCart.findIndex(cartItem => cartItem.product.id === product.id);
+
+      if (itemIndex !== -1 && currentCart[itemIndex].quantity > 1) {
+        const updatedCart = [...currentCart];
+        updatedCart[itemIndex] = {
+          ...updatedCart[itemIndex],
+          quantity: updatedCart[itemIndex].quantity - 1
+        };
+
+        return updatedCart;
+      }
+
+      return currentCart;
+    });
+  }
+
+  toggleActive() {
+    this.isActive.update(state => !state);
   }
 }
