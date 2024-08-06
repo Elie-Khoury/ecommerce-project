@@ -1,3 +1,315 @@
+@import "../../../variables.scss";
+
 .dashboard-container {
     position: relative;
+
+    .categories-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        #electronics-wrapper {
+            width: 50%;
+            background-image: url("../../../../public/assets/electronics-bg.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #jewelry-wrapper {
+            width: 50%;
+            background-image: url("../../../../public/assets/jewelry-bg.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #clothing-wrapper {
+            width: 100%;
+            background-image: url("../../../../public/assets/clothing-bg.jpg");
+            background-position: 10% 20%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container-wrapper {
+
+            .category-container {
+                height: 50vh;
+                background: hsla(0, 0%, 0%, 0.55);
+                cursor: pointer;
+                transition: background 0.5s;
+
+                position: relative;
+
+                h1 {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    color: white;
+                    font-size: 2.5em;
+                    font-weight: 200;
+                    transition: opacity 0.5s;
+                }
+            }
+
+            .category-container:hover {
+                background: none;
+
+                h1 {
+                    opacity: 0;
+                }
+            }
+
+            #electronics-cat {
+                width: 100%;
+
+            }
+
+            #jewelry-cat {
+                width: 100%;
+
+            }
+
+
+            #clothing-cat {
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+
+                .women-container,
+                .men-container {
+                    width: 100%;
+                    height: 50vh;
+                    position: relative;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+
+                    h2 {
+                        position: absolute;
+                        bottom: 8%;
+                        color: $color-light;
+                        font-weight: 200;
+                        transition: 0.5s;
+                    }
+
+                    hr {
+                        background: white;
+                        position: absolute;
+                        bottom: 5%;
+                        width: 80%;
+                        margin: 0% 10%;
+                        transition: 0.5s;
+                    }
+                }
+
+                .men-container {
+
+                    h2 {
+                        left: 10%;
+                    }
+                }
+
+                .men-container:hover {
+                    h2 {
+                        font-size: 1.2em;
+                        font-weight: 400;
+
+                    }
+
+                    hr {
+                        height: 5px;
+                    }
+                }
+
+                .women-container {
+
+                    h2 {
+                        right: 10%;
+                    }
+                }
+
+                .women-container:hover {
+                    h2 {
+                        font-size: 1.2em;
+                        font-weight: 400;
+                    }
+
+                    hr {
+                        height: 5px;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .cards-container {
+        width: 100%;
+        padding: 15% 10%;
+
+        .cards-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            .card-container {
+                width: 25%;
+                border: 1.5px solid $color-dark;
+                border-radius: 20px;
+                position: relative;
+                text-align: center;
+
+                .icon-container {
+                    position: absolute;
+                    top: 0%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    margin-inline: auto;
+                    align-content: center;
+                    padding: 0% 15%;
+                    background: white;
+
+                    mat-icon {
+                        color: $color-dark;
+
+                    }
+                }
+
+                .content-container {
+                    margin: 20% 0%;
+
+                    h2 {
+                        margin-bottom: 4%;
+                        font-weight: 500;
+                    }
+
+                    h3 {
+                        color: $color-sec;
+                    }
+                }
+            }
+        }
+    }
+
+    .newsletter-container {
+        width: 100%;
+        padding: 10% 0%;
+        background: $bg-color;
+
+        .newsletter-wrapper {
+            width: 70%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .newsletter-content {
+                width: 50%;
+
+                .newsletter-title {
+                    margin-bottom: 7%;
+
+                    h1 {
+                        font-size: 2.5em;
+                        font-weight: 600;
+                        margin-bottom: 1%;
+                    }
+
+                    h3 {
+                        color: $color-sec;
+                        font-weight: 400;
+                    }
+                }
+
+                .newsletter-input {
+                    width: 100%;
+                    padding: 1% 2%;
+                    background: white;
+                    border: 1px solid $color-sec;
+                    border-radius: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    input {
+                        border: none;
+                        padding: 0% 2%;
+                        outline: none;
+                        font-size: 0.8em;
+                        width: 80%;
+                        color: $color-dark;
+                    }
+
+                    .subscribe-btn {
+                        position: relative;
+                        background: none;
+                        padding: 2.5% 5%;
+                        border: 1px solid $color-sec;
+                        border-radius: 50px;
+                        cursor: pointer;
+
+                        h3 {
+                            color: $color-sec;
+                            font-weight: 500;
+                            transition: 0.5s;
+                        }
+                    }
+
+                    .subscribe-btn:hover {
+
+                        h3 {
+                            color: $color-light;
+                        }
+                    }
+
+                    .subscribe-btn::before {
+                        content: "";
+                        position: absolute;
+                        left: 0%;
+                        top: 0%;
+                        height: 100%;
+                        width: 0%;
+                        background: $color-dark;
+                        transition: 0.5s;
+                    }
+
+                    .subscribe-btn:hover::before {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .social-media-container {
+                width: 30%;
+                text-align: center;
+
+                .icons-container {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    margin-bottom: 10%;
+
+                    .sm-icon {
+                        width: 20%;
+                        padding: 5%;
+                        border-radius: 50px;
+                        border: 1.5px solid $color-dark;
+                        background: white;
+                        cursor: pointer;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
