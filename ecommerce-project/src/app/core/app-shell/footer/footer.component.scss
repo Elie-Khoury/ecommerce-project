@@ -1,0 +1,40 @@
+@import "../../../../variables.scss";
+
+footer {
+    width: 100%;
+    background: $color-dark;
+
+    .footer-wrapper {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3% 0%;
+
+        .footer-content {
+            width: 50%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+
+            a {
+                cursor: pointer;
+
+                h2 {
+                    color: $color-light;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .btn-container {
+            cursor: pointer;
+
+            mat-icon {
+                width: 100%;
+                color: $color-light;
+            }
+        }
+    }
+}
