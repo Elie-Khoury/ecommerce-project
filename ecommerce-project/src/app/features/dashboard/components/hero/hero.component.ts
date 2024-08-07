@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../../../../core/auth/models/user';
+import { User } from '../../../../core/auth/models/User.model';
 import { Store } from '@ngrx/store';
 import { AuthState } from '../../../../core/auth/state/reducers/auth.reducer';
 import { selectUser } from '../../../../core/auth/state/selectors/auth.selectors';

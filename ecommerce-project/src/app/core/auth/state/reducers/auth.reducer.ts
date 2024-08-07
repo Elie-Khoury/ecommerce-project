@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store"
 import * as AuthActions from '../actions/auth.actions'
-import { User } from "../../models/user"
+import { User } from "../../models/User.model"
 
 
 

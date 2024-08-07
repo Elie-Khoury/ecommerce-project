@@ -6,7 +6,7 @@ import { jwtDecode } from 'jwt-decode';
 import { AuthenticationService } from '../../services/authentication.service';
 import { catchError, map, mergeMap, of, tap } from 'rxjs';
 import { LoginRegComponent } from '../../login-reg/login-reg.component';
-import { User } from '../../models/user';
+import { User } from '../../models/User.model';
 
 
 @Injectable()

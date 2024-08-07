@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsService } from '../../services/products.service';
 import { IProduct } from '../../models/product';
 import { Subscription } from 'rxjs';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../../core/app-shell/cart-menu/services/cart.service';
 
 @Component({
   selector: 'app-products-swiper',

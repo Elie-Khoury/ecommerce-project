@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { env } from '../../../../envs/env.dev';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { ILoginRequest } from '../models/LoginRequest';
-import { ILoginResponse } from '../models/LoginResponse';
-import { ISignUpRequest } from '../models/SignUpRequest';
-import { ISignUpResponse } from '../models/SignUpResponse';
-import { User } from '../models/user';
+import { ILoginRequest } from '../models/LoginRequest.model';
+import { ILoginResponse } from '../models/LoginResponse.model';
+import { ISignUpRequest } from '../models/SignUpRequest.model';
+import { ISignUpResponse } from '../models/SignUpResponse.model';
+import { User } from '../models/User.model';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
-import { IRefreshResponse } from '../models/RefreshResponse';
+import { IRefreshResponse } from '../models/RefreshResponse.model';
 
 @Injectable({
   providedIn: 'root'
