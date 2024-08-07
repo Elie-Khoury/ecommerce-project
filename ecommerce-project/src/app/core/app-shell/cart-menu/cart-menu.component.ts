@@ -1,6 +1,11 @@
 import { Component, computed, OnInit } from '@angular/core';
 import { CartService } from './services/cart.service';
 import { IProduct } from '../../../shared/models/product';
+import { Subscription, take, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectUser } from '../../auth/state/selectors/auth.selectors';
+import { AuthState } from '../../auth/state/reducers/auth.reducer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart-menu',
@@ -27,11 +32,30 @@ export class CartMenuComponent implements OnInit {
   })
 
   constructor(
-    private cartService: CartService
+    private cartService: CartService,
+    private router: Router,
+    private store: Store<AuthState>
   ) { }
 
   toggleActive() {
     this.cartService.toggleActive();
+  }
+
+  confirmOrder() {
+    let Subscription: Subscription = this.store.select(selectUser).pipe(
+      take(1),
+      tap(user => {
+        if (user) {
+          this.cartService.confirmOrder();
+
+        }
+        else {
+          this.router.navigate(['/login']);
+        }
+      })
+    ).subscribe();
+
+    Subscription.unsubscribe();
   }
 
   removeFromCart(product: IProduct) {

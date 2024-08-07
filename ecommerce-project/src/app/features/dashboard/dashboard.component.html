@@ -4,17 +4,19 @@
     <app-products-swiper [toDisplay]="toDisplay"></app-products-swiper>
 
     <div class="categories-container">
-        <div id="electronics-wrapper" class="container-wrapper">
+        <div id="electronics-wrapper" [ngStyle]="{backgroundImage: 'url(' + electronicsBgImg + ')'}"
+            class="container-wrapper">
             <div id="electronics-cat" class="category-container">
                 <h1>ELECTRONICS</h1>
             </div>
         </div>
-        <div id="jewelry-wrapper" class="container-wrapper">
+        <div id="jewelry-wrapper" [ngStyle]="{backgroundImage: 'url(' + jewelryBgImg + ')'}" class="container-wrapper">
             <div id="jewelry-cat" class="category-container">
                 <h1>JEWELRY</h1>
             </div>
         </div>
-        <div id="clothing-wrapper" class="container-wrapper">
+        <div id="clothing-wrapper" [ngStyle]="{backgroundImage: 'url(' + clothingBgImg + ')'}"
+            class="container-wrapper">
             <div id="clothing-cat" class="category-container">
                 <h1>CLOTHING</h1>
 

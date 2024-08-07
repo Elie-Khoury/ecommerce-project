@@ -1,12 +1,8 @@
 <nav class="navbar" [ngClass]="navDark ?  'dark' : 'light'">
-    <div class="logo-container">
+    <a class="logo-container" routerLink="/home">
         <img [src]="imgUrls.logoUrl" alt="">
-    </div>
+    </a>
     <div class="nav-paths">
-        <a routerLink="/home">
-            <h2>HOME</h2>
-        </a>
-        <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
         <a href="">
             <h2>MEN</h2>
         </a>
@@ -24,7 +20,8 @@
             <img [src]="imgUrls.searchUrl" alt="Search icon">
         </div>
         <div class="nav-icon" (click)="toggleActive()">
-            <img [src]="imgUrls.cartUrl" alt="Cart icon">
+            <mat-icon class="material-symbols-outlined" [matBadgeHidden]="cart().length == 0" [matBadge]="cart().length"
+                matBadgePosition="after" matBadgeColor="accent">shopping_bag</mat-icon>
         </div>
         <div class="nav-icon">
             <a routerLink="/profile">
