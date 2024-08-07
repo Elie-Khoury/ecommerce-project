@@ -14,7 +14,6 @@ export class CartService {
   public isActive = signal<boolean>(false);
 
   totalPrice = computed(() => {
-    console.log(this.cart());
     return this.cart().reduce((acc, curr) => acc + (curr.quantity * curr.product.price), 0);
   })
 
@@ -29,8 +28,8 @@ export class CartService {
       }
     }
     this.cart.update((cart) => [...cart, { product, quantity: 1 }]);
-    console.log(this.cart());
   }
+
   removeFromCart(product: IProduct) {
     this.cart.update((cart) => cart.filter(i => i.product !== product));
   }
@@ -73,5 +72,11 @@ export class CartService {
 
   toggleActive() {
     this.isActive.update(state => !state);
+  }
+
+  confirmOrder() {
+    window.alert("Your order has been confirmed!");
+
+    this.cart.set([]);
   }
 }

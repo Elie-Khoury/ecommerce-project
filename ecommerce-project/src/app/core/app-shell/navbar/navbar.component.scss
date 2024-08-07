@@ -1,4 +1,5 @@
 @import "../../../../variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
 .light {
     .nav-paths {
@@ -86,6 +87,15 @@
         .nav-icon {
             width: 13%;
             cursor: pointer;
+
+            .material-symbols-outlined {
+                color: $color-dark;
+                font-variation-settings:
+                    'FILL' 0,
+                    'wght' 300,
+                    'GRAD' 0,
+                    'opsz' 40
+            }
 
             img {
                 width: 100%;

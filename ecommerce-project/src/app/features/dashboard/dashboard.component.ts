@@ -9,5 +9,10 @@ export class DashboardComponent {
 
   toDisplay: string | number = 7;
 
+  electronicsBgImg: string = 'assets/electronics-bg.jpg';
+  jewelryBgImg: string = 'assets/jewelry-bg.jpg';
+  clothingBgImg: string = 'assets/clothing-bg.jpg';
+
+
   constructor() { }
 }

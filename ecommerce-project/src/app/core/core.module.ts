@@ -5,7 +5,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { CartMenuComponent } from './app-shell/cart-menu/cart-menu.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CartService } from './app-shell/cart-menu/services/cart.service';
+import { MatBadgeModule } from '@angular/material/badge';
 import { FooterComponent } from './app-shell/footer/footer.component';
 
 @NgModule({
@@ -18,6 +18,7 @@ import { FooterComponent } from './app-shell/footer/footer.component';
     CommonModule,
     MatIconModule,
     MatButtonModule,
+    MatBadgeModule,
     AppRoutingModule
   ],
   exports: [
