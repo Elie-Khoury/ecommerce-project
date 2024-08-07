@@ -48,7 +48,7 @@ export class AuthInterceptorService implements HttpInterceptor {
             filter(user => user !== null),
             take(1),
             switchMap(user => {
-              return next.handle(req.clone({ headers: new HttpHeaders({ 'JWT': user?.token ?? '' }) }));
+              return next.handle(req.clone({ headers: new HttpHeaders({ 'Authorization': user?.token ?? '' }) }));
             }),
             catchError(err => {
               this.isRefreshing = false;

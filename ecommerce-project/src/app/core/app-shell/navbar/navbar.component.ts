@@ -2,13 +2,14 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { IImageUrls } from './models/imgUrls';
 import { AuthenticationService } from '../../auth/services/authentication.service';
 import { User } from '../../auth/models/user';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, take, tap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectUser } from '../../auth/state/selectors/auth.selectors';
 import { AuthState } from '../../auth/state/reducers/auth.reducer';
 import * as fromAuthActions from '../../auth/state/actions/auth.actions';
 import { CartMenuComponent } from '../../../features/dashboard/components/cart-menu/cart-menu.component';
 import { CartService } from '../../../shared/services/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private store: Store<AuthState>,
     private authService: AuthenticationService,
+    private router: Router,
     private cartService: CartService
   ) { }
 
@@ -33,7 +35,23 @@ export class NavbarComponent implements OnInit {
   }
 
   toggleActive() {
+
+    // let Subscription: Subscription = this.store.select(selectUser).pipe(
+    //   take(1),
+    //   tap(user => {
+    //     if (user) {
+    //       this.cartService.toggleActive();
+
+    //     } else {
+    //       this.router.navigate(['/login']);
+    //     }
+    //   })
+    // ).subscribe();
+
+    // Subscription.unsubscribe();
+
     this.cartService.toggleActive();
+
   }
 
   ngOnInit(): void {
