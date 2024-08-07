@@ -1,14 +1,14 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { IImageUrls } from './models/imgUrls';
+import { IImageUrls } from './models/ImgUrls.model';
 import { AuthenticationService } from '../../auth/services/authentication.service';
-import { User } from '../../auth/models/user';
+import { User } from '../../auth/models/User.model';
 import { Observable, Subscription, take, tap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectUser } from '../../auth/state/selectors/auth.selectors';
 import { AuthState } from '../../auth/state/reducers/auth.reducer';
 import * as fromAuthActions from '../../auth/state/actions/auth.actions';
-import { CartMenuComponent } from '../../../features/dashboard/components/cart-menu/cart-menu.component';
-import { CartService } from '../../../shared/services/cart.service';
+import { CartMenuComponent } from '../cart-menu/cart-menu.component';
+import { CartService } from '../cart-menu/services/cart.service';
 import { Router } from '@angular/router';
 
 @Component({

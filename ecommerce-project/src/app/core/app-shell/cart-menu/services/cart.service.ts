@@ -1,7 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { IProduct } from '../models/product';
-import { ICartItem } from '../models/cart';
-import { CartMenuComponent } from '../../features/dashboard/components/cart-menu/cart-menu.component';
+import { IProduct } from '../../../../shared/models/product';
+import { ICartItem } from '../models/Cart.model';
+import { CartMenuComponent } from '../cart-menu.component';
 import { Observable } from 'rxjs';
 
 @Injectable({

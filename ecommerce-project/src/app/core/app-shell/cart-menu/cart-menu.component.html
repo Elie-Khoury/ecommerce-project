@@ -1,17 +1,17 @@
-<div class="cart-menu-container" [ngClass]="cartService.isActive() ? 'active' : ''">
-    <div class="bg-overlay" (click)="cartService.toggleActive()"></div>
+<div class="cart-menu-container" [ngClass]="isActive() ? 'active' : ''">
+    <div class="bg-overlay" (click)="toggleActive()"></div>
     <div class="cart-menu">
         <div class="header-container">
             <h1>CART</h1>
         </div>
-        @if(cartService.cart().length === 0){
+        @if(cart().length === 0){
         <p>Cart is empty!</p>
         }
         @else{
         <div class="items-container">
-            @for(item of cartService.cart(); track item.product.id){
+            @for(item of cart(); track item.product.id){
             <div class="item-container">
-                <button class="remove-btn" (click)="cartService.removeFromCart(item.product)">
+                <button class="remove-btn" (click)="removeFromCart(item.product)">
                     <mat-icon>delete_sweep</mat-icon>
                 </button>
                 <div class=" img-container">
@@ -22,11 +22,11 @@
                 </div>
                 <div class="functionality-container">
                     <div class="quantity-container">
-                        <button (click)="cartService.reduceQuantity(item.product)">-</button>
+                        <button (click)="reduceQuantity(item.product)">-</button>
                         <div class="quantity">
                             <h2>{{item.quantity}}</h2>
                         </div>
-                        <button (click)="cartService.increaseQuantity(item.product)">+</button>
+                        <button (click)="increaseQuantity(item.product)">+</button>
                     </div>
                     <div class="price">
                         <h2>{{item.product.price * item.quantity | number:'1.2-2'}}$</h2>
@@ -40,12 +40,12 @@
         <div class="bottom-container">
             <div class="total-price-container">
                 <h2>TOTAL</h2>
-                <h2>{{cartService.totalPrice() | number:'1.2-2'}} $</h2>
+                <h2>{{totalPrice() | number:'1.2-2'}} $</h2>
             </div>
-            <button class="continue-btn" (click)="cartService.toggleActive()">
+            <button class="continue-btn" (click)="toggleActive()">
                 <h2>Continue Shopping</h2>
             </button>
-            <button class="confirm-btn" [disabled]="cartService.cart().length === 0">
+            <button class="confirm-btn" [disabled]="cart.length === 0">
                 <h2>Confirm Order</h2>
             </button>
         </div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { LoginRegComponent } from '../login-reg.component'
-import { ISignUpRequest } from '../../models/SignUpRequest';
+import { ISignUpRequest } from '../../models/SignUpRequest.model';
 import { AuthenticationService } from '../../services/authentication.service';
 import { CustomValidators } from '../validators/custom-validators.validator';
 import { Router } from '@angular/router';

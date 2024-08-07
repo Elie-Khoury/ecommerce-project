@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
-import { ILoginRequest } from '../../models/LoginRequest';
-import { ISignUpRequest } from '../../models/SignUpRequest';
-import { User } from '../../models/user';
+import { ILoginRequest } from '../../models/LoginRequest.model';
+import { ISignUpRequest } from '../../models/SignUpRequest.model';
+import { User } from '../../models/User.model';
 
 export const autologin = createAction(
     '[Auth Effect] Auto Login User'

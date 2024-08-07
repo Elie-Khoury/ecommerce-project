@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ProductsSwiperComponent } from '../../shared/components/products-swiper/products-swiper.component';
 
 @Component({
   selector: 'app-dashboard',

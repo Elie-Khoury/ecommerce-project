@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LoginRegComponent } from '../login-reg.component'
-import { ILoginRequest } from '../../models/LoginRequest';
-import { ILoginResponse } from '../../models/LoginResponse';
+import { ILoginRequest } from '../../models/LoginRequest.model';
+import { ILoginResponse } from '../../models/LoginResponse.model';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 import * as fromAuthActions from '../../state/actions/auth.actions';
