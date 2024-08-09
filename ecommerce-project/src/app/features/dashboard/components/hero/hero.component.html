@@ -1,7 +1,8 @@
 <div class="hero-container">
     <app-navbar [navDark]="navDark"></app-navbar>
     <div class="hero-content">
-        <swiper-container slides-per-view="1" speed="2000" loop="true" autoplay="true" parallax="true" dir="rtl">
+        <swiper-container class="shoes-container" slides-per-view="1" speed="2000" loop="true" autoplay="true"
+            parallax="true" dir="rtl">
             <swiper-slide *ngFor="let img of imgUrls; trackBy: identify">
                 <img [src]="img.url" [alt]="img.alt">
             </swiper-slide>

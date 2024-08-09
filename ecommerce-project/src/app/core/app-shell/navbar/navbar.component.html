@@ -4,29 +4,57 @@
     </a>
     <div class="nav-paths">
         <a href="">
-            <h2>MEN</h2>
+            <h3>MEN</h3>
         </a>
         <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
         <a href="">
-            <h2>WOMEN</h2>
+            <h3>WOMEN</h3>
         </a>
         <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
         <a href="">
-            <h2>COLLECTION</h2>
+            <h3>COLLECTION</h3>
         </a>
     </div>
+    <div class="search-bar">
+        <app-searchbar></app-searchbar>
+    </div>
     <div class="nav-icons">
-        <div class="nav-icon">
-            <img [src]="imgUrls.searchUrl" alt="Search icon">
-        </div>
         <div class="nav-icon" (click)="toggleActive()">
-            <mat-icon class="material-symbols-outlined" [matBadgeHidden]="cart().length == 0" [matBadge]="cart().length"
-                matBadgePosition="after" matBadgeColor="accent">shopping_bag</mat-icon>
+            <button mat-icon-button>
+                <mat-icon class="material-symbols-outlined" [matBadgeHidden]="cart().length == 0"
+                    [matBadge]="cart().length" matBadgePosition="after" matBadgeColor="accent">
+                    shopping_bag
+                </mat-icon>
+            </button>
         </div>
         <div class="nav-icon">
-            <a routerLink="/profile">
-                <img [src]="imgUrls.profileUrl" alt="Profile icon">
-            </a>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
+            </button>
+
+            <mat-menu #menu="matMenu">
+                @if(user$ | async){
+                <a routerLink="/profile">
+                    <button mat-menu-item>
+                        <mat-icon>manage_accounts</mat-icon>
+                        <span>Manage Account</span>
+                    </button>
+                </a>
+                <button mat-menu-item (click)="onLogout()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Logout</span>
+                </button>
+                }
+                @else{
+                <a routerLink="/login">
+                    <button mat-menu-item>
+                        <mat-icon>login</mat-icon>
+                        <span>Login</span>
+                    </button>
+                </a>
+                }
+            </mat-menu>
+
         </div>
     </div>
 </nav>
