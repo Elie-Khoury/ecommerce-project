@@ -40,16 +40,11 @@ export class ProductsSwiperComponent implements OnInit {
       });
     }
     else {
-      if (this.toDisplay === "products") {
-        this.productSubscription = this.prodService.products$.subscribe(products => {
-          this.products = products;
-        });
-      }
-      else {
-        this.productSubscription = this.prodService.categoryProducts$(this.toDisplay).subscribe((products => {
-          this.products = products;
-        }));
-      }
+
+      this.productSubscription = this.prodService.categoryProducts$(this.toDisplay).subscribe((products => {
+        this.products = products;
+      }));
+
     }
   }
 }
