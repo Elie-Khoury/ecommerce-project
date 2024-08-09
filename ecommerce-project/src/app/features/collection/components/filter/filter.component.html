@@ -3,12 +3,43 @@
         <mat-accordion>
             <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
                 <mat-expansion-panel-header>
+                    <mat-panel-title> Sort By </mat-panel-title>
+                </mat-expansion-panel-header>
+                <hr>
+                <div class="input-container">
+                    <div class="radio-container">
+                        <input id="pr-hi-lo" type="radio" value="pr-hi-lo">
+                        <label for="pr-hi-lo">
+                            <h2>Price High-to-Low</h2>
+                        </label>
+                    </div>
+                    <div class="radio-container">
+                        <input id="pr-lo-hi" type="radio" value="pr-lo-hi">
+                        <label for="pr-lo-hi">
+                            <h2>Price Low-to-High</h2>
+                        </label>
+                    </div>
+                    <div class="radio-container">
+                        <input id="category" type="radio" value="category">
+                        <label for="category">
+                            <h2>Category</h2>
+                        </label>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+                <mat-expansion-panel-header>
                     <mat-panel-title> Price </mat-panel-title>
                 </mat-expansion-panel-header>
                 <hr>
                 <div class="slider-container input-container">
-                    <mat-slider min="0" [max]="maxPrice" step="50" discrete>
-                        <input formControlName="price" matSliderThumb [value]="maxPrice">
+                    <label for="price">
+                        <h2>0$ - {{productForm.value.price !== '' ? productForm.value.price :maxPrice}}$</h2>
+                    </label>
+                    <mat-slider min="0" [max]="maxPrice" step="50">
+                        <input id="price" formControlName="price" matSliderThumb [value]="maxPrice">
                     </mat-slider>
                 </div>
             </mat-expansion-panel>
@@ -23,7 +54,9 @@
                 <div class="input-container">
                     <div class="checkbox-container">
                         <input [id]="category" type="checkbox" [value]="category" (change)="onCheckboxChange($event)">
-                        <label [for]="category">{{category}}</label>
+                        <label [for]="category">
+                            <h2>{{category | titlecase }}</h2>
+                        </label>
                     </div>
                 </div>
                 }

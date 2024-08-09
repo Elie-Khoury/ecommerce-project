@@ -9,7 +9,7 @@ import { SearchbarService } from '../../../../shared/components/searchbar/servic
 })
 export class FilterComponent implements OnInit {
 
-  categories = ['Electronics', 'Books', 'Clothing', 'Toys'];
+  categories!: string[];
 
   productForm: FormGroup = this.fb.group({
     name: [''],
@@ -39,5 +39,9 @@ export class FilterComponent implements OnInit {
       this.maxPrice = Math.max(...products.map(item => item.price));
       this.maxPrice = Math.ceil(this.maxPrice);
     });
+
+    this.searchService.getCategories().subscribe((categories) => {
+      this.categories = categories;
+    })
   }
 }

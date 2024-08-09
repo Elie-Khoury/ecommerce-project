@@ -6,6 +6,9 @@ import { CollectionComponent } from './collection.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
+import { ProductsSwiperComponent } from '../../shared/components/products-swiper/products-swiper.component';
 
 @NgModule({
     declarations: [
@@ -14,7 +17,9 @@ import { MatSliderModule } from '@angular/material/slider';
         ProductsComponent
     ],
     imports: [
+        CommonModule,
         CoreModule,
+        ProductsSwiperComponent,
         ReactiveFormsModule,
         MatSliderModule,
         MatExpansionModule

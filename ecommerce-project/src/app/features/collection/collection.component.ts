@@ -12,6 +12,7 @@ export class CollectionComponent implements OnInit {
   navDark!: boolean;
 
   products!: IProduct[];
+  toDisplay: string | number = "jewelery";
 
   constructor(private searchService: SearchbarService) { }
 

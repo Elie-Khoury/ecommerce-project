@@ -21,6 +21,10 @@ export class SearchbarService {
     return this.http.get<IProduct[]>(this.baseUrl + "products");
   }
 
+  getCategories(): Observable<string[]> {
+    return this.http.get<string[]>(this.baseUrl + "products/categories");
+  }
+
   onSearch(searchTerm: string) {
     this.overlayOpen.set(false);
     // this.router.navigateByUrl("/profile");
