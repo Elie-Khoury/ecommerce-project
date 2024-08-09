@@ -18,6 +18,7 @@ import { AuthModule } from './core/auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
+import { CollectionModule } from './features/collection/collection.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SharedModule } from './shared/shared.module';
     AuthModule,
     CoreModule,
     DashboardModule,
+    CollectionModule,
     SharedModule
   ],
   providers: [

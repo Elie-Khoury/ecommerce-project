@@ -1,0 +1,33 @@
+<div class="filter-wrapper">
+    <form [formGroup]="productForm" action="">
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Price </mat-panel-title>
+                </mat-expansion-panel-header>
+                <hr>
+                <div class="slider-container input-container">
+                    <mat-slider min="0" [max]="maxPrice" step="50" discrete>
+                        <input formControlName="price" matSliderThumb [value]="maxPrice">
+                    </mat-slider>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title> Category </mat-panel-title>
+                </mat-expansion-panel-header>
+                <hr>
+                @for(category of categories; track category) {
+                <div class="input-container">
+                    <div class="checkbox-container">
+                        <input [id]="category" type="checkbox" [value]="category" (change)="onCheckboxChange($event)">
+                        <label [for]="category">{{category}}</label>
+                    </div>
+                </div>
+                }
+            </mat-expansion-panel>
+        </mat-accordion>
+    </form>
+</div>
