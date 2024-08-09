@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './app-shell/navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { CartMenuComponent } from './app-shell/cart-menu/cart-menu.component';
-import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatMenuModule } from '@angular/material/menu';
 import { FooterComponent } from './app-shell/footer/footer.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FooterComponent } from './app-shell/footer/footer.component';
     MatIconModule,
     MatButtonModule,
     MatBadgeModule,
-    AppRoutingModule
+    MatMenuModule,
+    AppRoutingModule,
+    SharedModule
   ],
   exports: [
     NavbarComponent,

@@ -34,12 +34,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2% 75px 0% 75px;
+    padding: 2% 5% 0% 5%;
 
     z-index: 999;
 
     .logo-container {
-        width: 7%;
+        width: 5%;
 
         img {
             width: 100%;
@@ -50,12 +50,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 25%;
 
         a {
             position: relative;
 
-            h2 {
+            h3 {
                 cursor: pointer;
+                color: $color-dark;
+                font-weight: 600;
+                font-size: 0.85em;
             }
         }
 
@@ -78,27 +82,31 @@
         }
     }
 
+    .search-bar {
+        width: 30%;
+    }
+
     .nav-icons {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 13%;
+        width: 10%;
 
         .nav-icon {
-            width: 13%;
             cursor: pointer;
 
+            button:hover {
+                background: $bg-color;
+            }
+
             .material-symbols-outlined {
+                width: 100%;
                 color: $color-dark;
                 font-variation-settings:
                     'FILL' 0,
-                    'wght' 300,
+                    'wght' 400,
                     'GRAD' 0,
                     'opsz' 40
-            }
-
-            img {
-                width: 100%;
             }
         }
     }

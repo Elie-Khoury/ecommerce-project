@@ -1,0 +1,46 @@
+<div class="search-input-container" cdkOverlayOrigin #overlayPosition="cdkOverlayOrigin"
+  [ngClass]="overlayOpen() ? 'mat-elevation-z2' : ''">
+  <mat-icon class="material-symbols-outlined">search</mat-icon>
+  <input type="text" placeholder="" [formControl]="searchTerm" (click)="overlayOpen.set(true)"
+    (keydown.ENTER)="onSearch(searchTerm.value)" />
+  @if(searchTerm.value != ''){
+  <button class="clear-btn" mat-icon-button (click)="searchTerm.setValue('')">
+    <mat-icon>close</mat-icon>
+  </button>
+  }
+</div>
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="overlayPosition" [cdkConnectedOverlayOpen]="overlayOpen()"
+  [cdkConnectedOverlayWidth]="
+    overlayPosition.elementRef.nativeElement.getBoundingClientRect().width
+  " (overlayOutsideClick)="overlayOpen.set(false)">
+  <div class="overlay-container mat-elevation-z2">
+    <mat-divider></mat-divider>
+    <mat-action-list>
+      @if(searchTerm.value == ''){
+      @for (search of recentSearches().slice(0,5); track search) {
+      <mat-list-item (click)="onSearch(search)">
+        <mat-icon matListItemIcon>history</mat-icon>
+        <h3 matListItemTitle>{{ search }}</h3>
+        <button class="close-btn" matListItemMeta mat-icon-button
+          (click)="removeFromRecentSearches(search); $event.stopPropagation()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-list-item>
+      }
+      }
+      @else{
+      @if(filteredProducts.length > 0){
+      @for (product of filteredProducts.slice(0,5); track product) {
+      <mat-list-item (click)="onSearch(product.title)">
+        <mat-icon matListItemIcon>search</mat-icon>
+        <h3 matListItemTitle>{{ product.title }}</h3>
+      </mat-list-item>
+      }
+      }
+      @else{
+      <h2>No results</h2>
+      }
+      }
+    </mat-action-list>
+  </div>
+</ng-template>
