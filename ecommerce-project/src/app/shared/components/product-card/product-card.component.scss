@@ -1,0 +1,60 @@
+@import "../../../../variables.scss";
+
+.item-container {
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-inline: auto;
+
+    .img-container {
+        height: 350px;
+        border: 2px solid $bg-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            max-height: 70%;
+            max-width: 70%;
+            object-fit: contain;
+            transition: 0.4s ease-out;
+        }
+    }
+
+    .content-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            h3 {
+                color: $color-sec;
+            }
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                padding: 5px 10px;
+                background: $color-dark;
+                color: $color-light;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.item-container:hover img {
+    scale: 1.1;
+}

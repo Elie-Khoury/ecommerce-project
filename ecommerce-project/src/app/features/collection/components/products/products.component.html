@@ -1,1 +1,7 @@
-<p>products works!</p>
+<div class="grid-container">
+    <div class="grid-wrapper">
+        @for(product of products; track product.id){
+        <app-product-card [product]="product"></app-product-card>
+        }
+    </div>
+</div>

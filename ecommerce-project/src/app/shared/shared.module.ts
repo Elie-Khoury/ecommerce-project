@@ -7,12 +7,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatDivider } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 
 @NgModule({
   declarations: [
     SearchbarComponent,
-    FilterProductsPipe
+    FilterProductsPipe,
+    ProductCardComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +26,8 @@ import { MatListModule } from '@angular/material/list';
     MatListModule
   ],
   exports: [
-    SearchbarComponent
+    SearchbarComponent,
+    ProductCardComponent
   ]
 })
 export class SharedModule { }
