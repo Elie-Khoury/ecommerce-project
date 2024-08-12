@@ -27,10 +27,7 @@ export class ProductsSwiperComponent implements OnInit {
     private cartService: CartService
   ) { }
 
-  addToCart(product: IProduct) {
-    this.cartService.addToCart(product);
-    window.alert("Product added to cart");
-  }
+
 
   ngOnInit(): void {
 

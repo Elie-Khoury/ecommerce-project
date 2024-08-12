@@ -9,6 +9,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared/shared.module';
 import { ProductsSwiperComponent } from '../../shared/components/products-swiper/products-swiper.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
     declarations: [
@@ -19,8 +20,10 @@ import { ProductsSwiperComponent } from '../../shared/components/products-swiper
     imports: [
         CommonModule,
         CoreModule,
+        SharedModule,
         ProductsSwiperComponent,
         ReactiveFormsModule,
+        MatIconModule,
         MatSliderModule,
         MatExpansionModule
     ],

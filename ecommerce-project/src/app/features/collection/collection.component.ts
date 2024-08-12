@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { SearchbarService } from '../../shared/components/searchbar/services/searchbar.service';
 import { IProduct } from '../../shared/models/product';
 
@@ -10,6 +10,7 @@ import { IProduct } from '../../shared/models/product';
 export class CollectionComponent implements OnInit {
 
   navDark!: boolean;
+  isActive = signal(false);
 
   products!: IProduct[];
   toDisplay: string | number = "jewelery";

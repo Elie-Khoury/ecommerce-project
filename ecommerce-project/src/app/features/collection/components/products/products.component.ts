@@ -8,8 +8,15 @@ import { Observable } from 'rxjs';
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
 
+  products!: IProduct[];
 
+  constructor(private searchService: SearchbarService) { }
 
+  ngOnInit(): void {
+    this.searchService.getProducts().subscribe((products) => {
+      this.products = products;
+    })
+  }
 }

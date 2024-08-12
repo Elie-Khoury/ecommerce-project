@@ -1,0 +1,18 @@
+@import "../../../../../variables.scss";
+
+.grid-container {
+    width: 100%;
+
+
+    .grid-wrapper {
+        display: grid;
+        grid-template-columns: minmax(30%, 1fr) minmax(30%, 1fr) minmax(30%,
+                1fr);
+
+        column-gap: 2%;
+
+        @media screen and (max-width: 768px) {
+            grid-template-columns: minmax(30%, 1fr) minmax(30%, 1fr);
+        }
+    }
+}
