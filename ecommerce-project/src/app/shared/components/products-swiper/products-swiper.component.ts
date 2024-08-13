@@ -17,9 +17,11 @@ import { SharedModule } from '../../shared.module';
 export class ProductsSwiperComponent implements OnInit {
 
   @Input() toDisplay: string | number = "";
+  @Input() price: number = 1000;
 
   api!: ProductsService;
   products: IProduct[] = [];
+  sortBy: string = '';
 
   productSubscription!: Subscription;
 
@@ -27,8 +29,6 @@ export class ProductsSwiperComponent implements OnInit {
     private prodService: ProductsService,
     private cartService: CartService
   ) { }
-
-
 
   ngOnInit(): void {
 

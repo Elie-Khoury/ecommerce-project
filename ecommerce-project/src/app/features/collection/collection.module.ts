@@ -11,13 +11,15 @@ import { SharedModule } from '../../shared/shared.module';
 import { ProductsSwiperComponent } from '../../shared/components/products-swiper/products-swiper.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductComponent } from './components/product/product.component';
+import { SortProductsPipe } from './pipes/sort-products.pipe';
 
 @NgModule({
     declarations: [
         CollectionComponent,
         FilterComponent,
         ProductsComponent,
-        ProductComponent
+        ProductComponent,
+        SortProductsPipe
     ],
     imports: [
         CommonModule,
@@ -30,7 +32,8 @@ import { ProductComponent } from './components/product/product.component';
         MatExpansionModule
     ],
     exports: [
-        ProductComponent
+        ProductComponent,
+        SortProductsPipe
     ],
 })
 export class CollectionModule { }

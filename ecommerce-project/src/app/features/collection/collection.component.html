@@ -10,11 +10,23 @@
 </div>
 <div class="collection-container">
     <div class="filter-container" [ngClass]="isActive() ? 'active' : ''">
-        <app-filter></app-filter>
+        <app-filter (formValueChanged)="onFormValueChanged($event)"></app-filter>
     </div>
     <div class="content-container" [ngClass]="isActive() ? 'active' : ''">
         <div class="products-container">
-            <app-products></app-products>
+            @if(formValues.sortBy !== 'category') {
+            <app-products [sortBy]="formValues.sortBy" [price]="formValues.price"></app-products>
+            }
+            @else if(formValues.category.length > 0) {
+            @for(category of formValues.category; track category){
+            <app-products-swiper [toDisplay]="category"></app-products-swiper>
+            }
+            }
+            @else{
+            @for(category of categories; track category){
+            <app-products-swiper [price]="formValues.price" [toDisplay]="category"></app-products-swiper>
+            }
+            }
         </div>
     </div>
 </div>
