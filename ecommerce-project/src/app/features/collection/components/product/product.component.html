@@ -1,19 +1,19 @@
-<app-navbar></app-navbar>
+<app-navbar [navDark]="navDark"></app-navbar>
 <div class="product-container">
     <div class="img-container">
-        <img src="/assets/clothing-bg.jpg" alt="">
+        <img [src]="selectedProduct.image" [alt]="selectedProduct.title">
     </div>
     <div class="content-container">
         <div class="title-container">
-            <h1>NIKE AIR JORDAN</h1>
-            <h3>Description about the product, what it does, what it looks like about the product, what it
-                does, what it looks like</h3>
+            <h1>{{selectedProduct.title}}</h1>
+            <h2>{{selectedProduct.category | titlecase}}</h2>
+            <h3>{{selectedProduct.description}}</h3>
         </div>
-        <h2>$203</h2>
+        <p class="price">${{selectedProduct.price}}</p>
         <button>
             <h3>Add to Cart</h3>
         </button>
     </div>
 </div>
 <app-products-swiper></app-products-swiper>
-<hr>
+<hr class="custom-divider">

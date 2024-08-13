@@ -1,4 +1,5 @@
 @import "../../../variables.scss";
+@import "../../../default-styles.scss";
 
 .dashboard-container {
     position: relative;
@@ -11,7 +12,6 @@
 
         #electronics-wrapper {
             width: 50%;
-            background-image: url("../../../../public/assets/electronics-bg.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -19,7 +19,6 @@
 
         #jewelry-wrapper {
             width: 50%;
-            background-image: url("../../../../public/assets/jewelry-bg.jpg");
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -27,7 +26,6 @@
 
         #clothing-wrapper {
             width: 100%;
-            background-image: url("../../../../public/assets/clothing-bg.jpg");
             background-position: 10% 20%;
             background-repeat: no-repeat;
             background-size: cover;

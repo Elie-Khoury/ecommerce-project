@@ -8,16 +8,20 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { MatDivider } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { IsNumberPipe } from './utils/pipes/is-number.pipe';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     SearchbarComponent,
     FilterProductsPipe,
-    ProductCardComponent
+    ProductCardComponent,
+    IsNumberPipe
   ],
   imports: [
     CommonModule,
+    RouterModule,
     FormsModule,
     OverlayModule,
     MatDivider,
@@ -27,7 +31,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
   ],
   exports: [
     SearchbarComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    IsNumberPipe
   ]
 })
 export class SharedModule { }
