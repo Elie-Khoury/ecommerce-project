@@ -10,12 +10,14 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../shared/shared.module';
 import { ProductsSwiperComponent } from '../../shared/components/products-swiper/products-swiper.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
     declarations: [
         CollectionComponent,
         FilterComponent,
-        ProductsComponent
+        ProductsComponent,
+        ProductComponent
     ],
     imports: [
         CommonModule,
@@ -28,6 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
         MatExpansionModule
     ],
     exports: [
+        ProductComponent
     ],
 })
 export class CollectionModule { }

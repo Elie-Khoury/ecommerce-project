@@ -4,13 +4,14 @@ import { ProductsService } from '../../services/products.service';
 import { IProduct } from '../../models/product';
 import { Subscription } from 'rxjs';
 import { CartService } from '../../../core/app-shell/cart-menu/services/cart.service';
+import { SharedModule } from '../../shared.module';
 
 @Component({
   selector: 'app-products-swiper',
   templateUrl: './products-swiper.component.html',
   standalone: true,
   styleUrls: ['./products-swiper.component.scss'],
-  imports: [CommonModule],
+  imports: [CommonModule, SharedModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProductsSwiperComponent implements OnInit {

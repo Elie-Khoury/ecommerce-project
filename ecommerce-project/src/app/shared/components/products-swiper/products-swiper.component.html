@@ -1,8 +1,17 @@
+<div class="title-container">
+    @if(toDisplay | isNumber) {
+    <h1>NEW ARRIVALS</h1>
+    }
+    @else{
+    <h1>{{toDisplay}}</h1>
+    }
+    <hr class="decorative-line">
+</div>
 <swiper-container slides-per-view="3" space-between="30" keyboard="true">
 
     @for (product of products; track product.id){
     <swiper-slide>
-        <product-card [product]="product"></product-card>
+        <app-product-card [product]="product"></app-product-card>
     </swiper-slide>
     }
 </swiper-container>
