@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { SearchbarService } from '../../../../shared/components/searchbar/services/searchbar.service';
 
@@ -9,10 +9,12 @@ import { SearchbarService } from '../../../../shared/components/searchbar/servic
 })
 export class FilterComponent implements OnInit {
 
+  @Output() formValueChanged = new EventEmitter<any>();
+
   categories!: string[];
 
   productForm: FormGroup = this.fb.group({
-    name: [''],
+    sortBy: [''],
     price: [''],
     category: this.fb.array([])
   });
@@ -32,6 +34,12 @@ export class FilterComponent implements OnInit {
       const index = category.controls.findIndex(x => x.value === e.target.value);
       category.removeAt(index);
     }
+
+    if (category.value.length > 0 && this.productForm.value.sortBy !== 'category') {
+      this.productForm.patchValue({
+        sortBy: 'category'
+      })
+    }
   }
 
   ngOnInit(): void {
@@ -43,5 +51,9 @@ export class FilterComponent implements OnInit {
     this.searchService.getCategories().subscribe((categories) => {
       this.categories = categories;
     })
+
+    this.productForm.valueChanges.subscribe(value => {
+      this.formValueChanged.emit(value);
+    });
   }
 }

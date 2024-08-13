@@ -3,7 +3,7 @@
     <h1>NEW ARRIVALS</h1>
     }
     @else{
-    <h1>{{toDisplay}}</h1>
+    <h1>{{($any(toDisplay) | titlecase)}}</h1>
     }
     <hr class="decorative-line">
 </div>
