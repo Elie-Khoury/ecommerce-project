@@ -1,8 +1,10 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { IProduct } from '../../../../shared/models/product';
 import { ICartItem } from '../models/Cart.model';
-import { CartMenuComponent } from '../cart-menu.component';
-import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectUser } from '../../../auth/state/selectors/auth.selectors';
+import { take, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,17 +19,42 @@ export class CartService {
     return this.cart().reduce((acc, curr) => acc + (curr.quantity * curr.product.price), 0);
   })
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private store: Store
+  ) { }
 
   addToCart(product: IProduct) {
-    for (const item of this.cart()) {
-      if (item.product === product) {
-        item.quantity++;
-        console.log(this.cart());
-        return
-      }
-    }
-    this.cart.update((cart) => [...cart, { product, quantity: 1 }]);
+    let Subscription = this.store.select(selectUser).pipe(
+      take(1),
+      tap(user => {
+        if (user) {
+          for (let item of this.cart()) {
+            if (item.product.id === product.id) {
+              item.quantity++;
+              console.log(this.cart());
+              return
+            }
+          }
+          this.cart.update((cart) => [...cart, { product, quantity: 1 }]);
+
+          let user = JSON.parse(localStorage.getItem("user")!);
+
+          user = {
+            ...user,
+            cart: this.cart()
+          }
+
+          localStorage.setItem("user", JSON.stringify(user));
+        }
+        else {
+          this.router.navigateByUrl("/login");
+        }
+      })
+
+    ).subscribe();
+
+    Subscription.unsubscribe();
   }
 
   removeFromCart(product: IProduct) {

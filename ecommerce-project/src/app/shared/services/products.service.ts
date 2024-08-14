@@ -18,10 +18,14 @@ export class ProductsService {
     return this.http.get<IProduct[]>(this.CATEGORY_API + category);
   }
 
-
   constructor(private http: HttpClient) { }
 
-  // getProducts(): Observable<IProduct[]> {
-  //   return this.http.get<IProduct[]>(this.PRODUCTS_API);
-  // }
+  getProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(this.PRODUCTS_API);
+  }
+
+  getCategories(): Observable<string[]> {
+    return this.http.get<string[]>(this.PRODUCTS_API + "/categories");
+  }
+
 }

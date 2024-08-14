@@ -1,4 +1,4 @@
-import { effect, Injectable, signal, Signal } from '@angular/core';
+import { effect, Injectable, signal } from '@angular/core';
 import { IProduct } from '../../../models/product';
 import { HttpClient } from '@angular/common/http';
 import { env } from '../../../../../envs/env.dev';
@@ -16,14 +16,6 @@ export class SearchbarService {
   recentSearches = signal<string[]>(JSON.parse(localStorage.getItem("recentSearches") ?? '[]'));
 
   constructor(private http: HttpClient, private router: Router) { }
-
-  getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.baseUrl + "products");
-  }
-
-  getCategories(): Observable<string[]> {
-    return this.http.get<string[]>(this.baseUrl + "products/categories");
-  }
 
   onSearch(searchTerm: string) {
     this.overlayOpen.set(false);

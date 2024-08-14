@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit, signal, Signal } from '@angular/core';
 import { SearchbarService } from './services/searchbar.service';
 import { IProduct } from '../../models/product';
 import { FormControl } from '@angular/forms';
+import { ProductsService } from '../../services/products.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-searchbar',
@@ -10,6 +12,7 @@ import { FormControl } from '@angular/forms';
 })
 export class SearchbarComponent implements OnInit, OnDestroy {
 
+  productsSubscription!: Subscription;
 
   searchTerm = new FormControl('');
 
@@ -20,7 +23,10 @@ export class SearchbarComponent implements OnInit, OnDestroy {
 
   recentSearches = this.searchService.recentSearches;
 
-  constructor(private searchService: SearchbarService) { }
+  constructor(
+    private searchService: SearchbarService,
+    private productsService: ProductsService
+  ) { }
 
   onSearch(search: string | null) {
 
@@ -34,7 +40,7 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.searchService.getProducts().subscribe((products) => {
+    this.productsSubscription = this.productsService.getProducts().subscribe((products) => {
       this.products = products;
     });
 
@@ -51,7 +57,7 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
+    this.productsSubscription.unsubscribe();
   }
 
 }
