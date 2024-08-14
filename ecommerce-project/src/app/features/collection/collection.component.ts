@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
-import { SearchbarService } from '../../shared/components/searchbar/services/searchbar.service';
 import { IProduct } from '../../shared/models/product';
 import { Subscription } from 'rxjs';
+import { ProductsService } from '../../shared/services/products.service';
 
 @Component({
   selector: 'app-collection',
@@ -26,7 +26,7 @@ export class CollectionComponent implements OnInit, OnDestroy {
   categories!: string[];
   toDisplay: string | number = "jewelery";
 
-  constructor(private searchService: SearchbarService) { }
+  constructor(private productsService: ProductsService) { }
 
   onFormValueChanged(values: any) {
     this.formValues = values;
@@ -37,11 +37,11 @@ export class CollectionComponent implements OnInit, OnDestroy {
 
     this.navDark = true;
 
-    this.categorySubscription = this.searchService.getCategories().subscribe((categories) => {
+    this.categorySubscription = this.productsService.getCategories().subscribe((categories) => {
       this.categories = categories;
     })
 
-    this.productSubscription = this.searchService.getProducts().subscribe((products) => {
+    this.productSubscription = this.productsService.getProducts().subscribe((products) => {
       this.products = products;
     });
   }

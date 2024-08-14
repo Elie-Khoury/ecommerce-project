@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../../../core/app-shell/cart-menu/services/cart.service';
 import { IProduct } from '../../../../shared/models/product';
 import { ActivatedRoute } from '@angular/router';
-import { SearchbarService } from '../../../../shared/components/searchbar/services/searchbar.service';
+import { ProductsService } from '../../../../shared/services/products.service';
 
 @Component({
   selector: 'app-product',
@@ -19,13 +19,13 @@ export class ProductComponent implements OnInit {
   constructor(
     private activeRoute: ActivatedRoute,
     private cartService: CartService,
-    private searchService: SearchbarService,
+    private productsService: ProductsService,
   ) { }
 
   ngOnInit(): void {
     this.productId = +this.activeRoute.snapshot.paramMap.get('id')!;
 
-    this.searchService.getProducts().subscribe((products) => {
+    this.productsService.getProducts().subscribe((products) => {
       this.selectedProduct = products.find(product => product.id === this.productId)!;
     })
   }

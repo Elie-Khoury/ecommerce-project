@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { SearchbarService } from '../../../../shared/components/searchbar/services/searchbar.service';
+import { ProductsService } from '../../../../shared/services/products.service';
 
 @Component({
   selector: 'app-filter',
@@ -23,7 +24,10 @@ export class FilterComponent implements OnInit {
 
   readonly panelOpenState = signal(false);
 
-  constructor(private fb: FormBuilder, private searchService: SearchbarService) { }
+  constructor(
+    private fb: FormBuilder,
+    private productsService: ProductsService
+  ) { }
 
   onCheckboxChange(e: any) {
     const category: FormArray = <FormArray>this.productForm.get('category');
@@ -43,12 +47,12 @@ export class FilterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.searchService.getProducts().subscribe((products) => {
+    this.productsService.getProducts().subscribe((products) => {
       this.maxPrice = Math.max(...products.map(item => item.price));
       this.maxPrice = Math.ceil(this.maxPrice);
     });
 
-    this.searchService.getCategories().subscribe((categories) => {
+    this.productsService.getCategories().subscribe((categories) => {
       this.categories = categories;
     })
 
