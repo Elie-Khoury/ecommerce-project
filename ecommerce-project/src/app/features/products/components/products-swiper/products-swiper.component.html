@@ -1,15 +1,21 @@
 <div class="title-container">
+    @if(related) {
+    <h1>RELATED PRODUCTS</h1>
+    }
+    @else{
     @if(toDisplay | isNumber) {
     <h1>NEW ARRIVALS</h1>
     }
     @else{
     <h1>{{($any(toDisplay) | titlecase)}}</h1>
     }
+    }
+
     <hr class="decorative-line">
 </div>
 <swiper-container slides-per-view="3" space-between="30" keyboard="true">
 
-    @for (product of products; track product.id){
+    @for (product of products | sortProducts:sortBy:price; track product.id){
     <swiper-slide>
         <app-product-card [product]="product"></app-product-card>
     </swiper-slide>

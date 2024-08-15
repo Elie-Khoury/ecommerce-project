@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IProduct } from '../../../shared/models/product';
+import { IProduct } from '../../models/Product.model';
 
 @Pipe({
   name: 'sortProducts'

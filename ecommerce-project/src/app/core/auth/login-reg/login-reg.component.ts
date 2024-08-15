@@ -11,8 +11,6 @@ export class LoginRegComponent {
 
   bgImg: string = 'assets/reg-bg.jpg';
 
-  navDark: boolean = false;
-
   loginPage: boolean = true;
 
   toggleLogin() {

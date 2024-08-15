@@ -1,4 +1,4 @@
-import { IProduct } from "../../../../shared/models/product";
+import { IProduct } from "../../../../features/products/models/Product.model";
 
 export interface ICartItem {
     product: IProduct,

@@ -15,4 +15,8 @@ export class DashboardComponent {
 
 
   constructor() { }
+
+  // addFilter(filter: string) {
+  //   this.filterComponent.addFilter(filter);
+  // }
 }

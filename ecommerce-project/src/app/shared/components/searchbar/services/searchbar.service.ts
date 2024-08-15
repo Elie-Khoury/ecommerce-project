@@ -1,5 +1,5 @@
 import { effect, Injectable, signal } from '@angular/core';
-import { IProduct } from '../../../models/product';
+import { IProduct } from '../../../../features/products/models/Product.model';
 import { HttpClient } from '@angular/common/http';
 import { env } from '../../../../../envs/env.dev';
 import { Observable } from 'rxjs';

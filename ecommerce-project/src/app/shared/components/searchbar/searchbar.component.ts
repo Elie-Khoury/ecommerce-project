@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit, signal, Signal } from '@angular/core';
 import { SearchbarService } from './services/searchbar.service';
-import { IProduct } from '../../models/product';
+import { IProduct } from '../../../features/products/models/Product.model';
 import { FormControl } from '@angular/forms';
-import { ProductsService } from '../../services/products.service';
+import { ProductsService } from '../../../features/products/services/products.service';
 import { Subscription } from 'rxjs';
 
 @Component({

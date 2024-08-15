@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IProduct } from '../../models/product';
-import { CartService } from '../../../core/app-shell/cart-menu/services/cart.service';
+import { IProduct } from '../../models/Product.model';
+import { CartService } from '../../../../core/app-shell/cart-menu/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -18,6 +18,5 @@ export class ProductCardComponent implements OnInit {
 
   addToCart(product: IProduct) {
     this.cartService.addToCart(product);
-    window.alert("Product added to cart");
   }
 }

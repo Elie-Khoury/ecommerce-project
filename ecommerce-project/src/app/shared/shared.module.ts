@@ -7,21 +7,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatDivider } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import { ProductCardComponent } from './components/product-card/product-card.component';
 import { IsNumberPipe } from './utils/pipes/is-number.pipe';
-import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
     SearchbarComponent,
     FilterProductsPipe,
-    ProductCardComponent,
     IsNumberPipe
   ],
   imports: [
     CommonModule,
-    RouterModule,
     FormsModule,
     OverlayModule,
     MatDivider,
@@ -31,7 +27,6 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     SearchbarComponent,
-    ProductCardComponent,
     IsNumberPipe
   ]
 })
