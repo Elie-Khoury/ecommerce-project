@@ -1,31 +1,31 @@
 <div class="dashboard-container">
-    <app-cart-menu></app-cart-menu>
     <app-hero></app-hero>
     <app-products-swiper [toDisplay]="toDisplay"></app-products-swiper>
     <hr class="custom-divider">
 
     <div class="categories-container">
-        <div id="electronics-wrapper" [ngStyle]="{backgroundImage: 'url(' + electronicsBgImg + ')'}"
-            class="container-wrapper">
+        <a routerLink="/collection" id="electronics-wrapper"
+            [ngStyle]="{backgroundImage: 'url(' + electronicsBgImg + ')'}" class="container-wrapper">
             <div id="electronics-cat" class="category-container">
                 <h1>ELECTRONICS</h1>
             </div>
-        </div>
-        <div id="jewelry-wrapper" [ngStyle]="{backgroundImage: 'url(' + jewelryBgImg + ')'}" class="container-wrapper">
+        </a>
+        <a routerLink="/collection" id="jewelry-wrapper" [ngStyle]="{backgroundImage: 'url(' + jewelryBgImg + ')'}"
+            class="container-wrapper">
             <div id="jewelry-cat" class="category-container">
                 <h1>JEWELRY</h1>
             </div>
-        </div>
+        </a>
         <div id="clothing-wrapper" [ngStyle]="{backgroundImage: 'url(' + clothingBgImg + ')'}"
             class="container-wrapper">
             <div id="clothing-cat" class="category-container">
                 <h1>CLOTHING</h1>
 
-                <a class="women-container">
+                <a routerLink="/collection" class="women-container">
                     <h2>WOMEN</h2>
                     <hr>
                 </a>
-                <a class="men-container">
+                <a routerLink="/collection" class="men-container">
                     <h2>MEN</h2>
                     <hr>
                 </a>
@@ -83,11 +83,11 @@
             <div class="social-media-container">
                 <div class="icons-container">
                     <button class="sm-icon">
-                        <img src="https://img.icons8.com/?size=100&id=32309&format=png&color=212322"
+                        <img id="instagram-icon" src="https://img.icons8.com/?size=100&id=32309&format=png&color=212322"
                             alt="Instagram icon">
                     </button>
                     <button class="sm-icon">
-                        <img src="https://img.icons8.com/?size=100&id=87253&format=png&color=212322"
+                        <img id="facebook-icon" src="https://img.icons8.com/?size=100&id=87253&format=png&color=212322"
                             alt="Facebook icon">
                     </button>
                 </div>

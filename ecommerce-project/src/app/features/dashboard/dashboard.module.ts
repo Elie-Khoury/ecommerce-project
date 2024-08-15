@@ -4,9 +4,9 @@ import { HeroComponent } from './components/hero/hero.component';
 import { DashboardComponent } from './dashboard.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { ProductsSwiperComponent } from '../../shared/components/products-swiper/products-swiper.component';
 import { CoreModule } from '../../core/core.module';
-
+import { ProductsModule } from '../products/products.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -16,10 +16,11 @@ import { CoreModule } from '../../core/core.module';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatIconModule,
     MatButtonModule,
-    ProductsSwiperComponent,
-    CoreModule
+    CoreModule,
+    ProductsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

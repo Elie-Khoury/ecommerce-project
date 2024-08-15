@@ -2,9 +2,10 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 import { AuthenticationService } from './core/auth/services/authentication.service';
 import { Store } from '@ngrx/store';
 import * as fromAuthActions from './core/auth/state/actions/auth.actions';
-import { IProduct } from './shared/models/product';
-import { ProductsService } from './shared/services/products.service';
+import { IProduct } from './features/products/models/Product.model';
+import { ProductsService } from './features/products/services/products.service';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,13 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ProductSubscribtion!: Subscription;
 
-  constructor(private store: Store, private prodService: ProductsService) { }
+  showFooter: boolean = true;
+
+  constructor(
+    private store: Store,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.store.dispatch(fromAuthActions.autologin());
@@ -26,6 +33,11 @@ export class AppComponent implements OnInit, OnDestroy {
     // this.ProductSubscribtion = this.prodService.getProducts().subscribe(products => {
     //   this.products.set(products);
     // });
+
+    this.router.events.subscribe(() => {
+      const currentRoute = this.router.url;
+      this.showFooter = currentRoute !== '/login'; // Modify the path as needed
+    });
   }
 
   ngOnDestroy(): void {

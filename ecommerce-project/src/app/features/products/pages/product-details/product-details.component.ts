@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../../../../core/app-shell/cart-menu/services/cart.service';
-import { IProduct } from '../../../../shared/models/product';
+import { IProduct } from '../../models/Product.model';
 import { ActivatedRoute } from '@angular/router';
-import { ProductsService } from '../../../../shared/services/products.service';
+import { CartService } from '../../../../core/app-shell/cart-menu/services/cart.service';
+import { ProductsService } from '../../services/products.service';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.scss'
+  selector: 'app-product-details',
+  templateUrl: './product-details.component.html',
+  styleUrl: './product-details.component.scss'
 })
-export class ProductComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit {
 
   navDark: boolean = true;
 
@@ -21,6 +21,7 @@ export class ProductComponent implements OnInit {
     private cartService: CartService,
     private productsService: ProductsService,
   ) { }
+
 
   ngOnInit(): void {
     this.productId = +this.activeRoute.snapshot.paramMap.get('id')!;

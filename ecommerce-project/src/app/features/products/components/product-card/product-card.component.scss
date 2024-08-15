@@ -1,4 +1,4 @@
-@import "../../../../variables.scss";
+@import "../../../../../variables.scss";
 
 .item-container {
     width: 100%;
@@ -7,6 +7,46 @@
     margin-top: 5%;
     margin-bottom: 5%;
     margin-inline: auto;
+    position: relative;
+
+    .add-btn {
+        position: absolute;
+        top: 2%;
+        right: 5%;
+        background: none;
+        color: $color-sec;
+        border: none;
+        cursor: pointer;
+        transition: scale 0.3s;
+        z-index: 999;
+
+        &:hover {
+            color: $color-dark;
+            scale: 1.1;
+        }
+
+        &:active {
+            scale: 0.9;
+
+            .material-symbols-outlined {
+                font-variation-settings:
+                    'FILL' 100,
+                    'wght' 400,
+                    'GRAD' 0,
+                    'opsz' 40
+            }
+        }
+
+        .material-symbols-outlined {
+            transition: all 0.3s;
+
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 40
+        }
+    }
 
     .img-container {
         height: 350px;
@@ -43,14 +83,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            button {
-                padding: 5px 10px;
-                background: $color-dark;
-                color: $color-light;
-                border: none;
-                cursor: pointer;
-            }
         }
     }
 }

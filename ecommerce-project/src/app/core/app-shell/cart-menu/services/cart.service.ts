@@ -1,5 +1,5 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { IProduct } from '../../../../shared/models/product';
+import { IProduct } from '../../../../features/products/models/Product.model';
 import { ICartItem } from '../models/Cart.model';
 import { Store } from '@ngrx/store';
 import { selectUser } from '../../../auth/state/selectors/auth.selectors';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CartService {
 
-  public cart = signal<ICartItem[]>([]);
+  public cart = signal<ICartItem[]>(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")!).cart : []);
 
   public isActive = signal<boolean>(false);
 
@@ -29,16 +29,25 @@ export class CartService {
       take(1),
       tap(user => {
         if (user) {
+
+          let user = JSON.parse(localStorage.getItem("user")!);
+
           for (let item of this.cart()) {
             if (item.product.id === product.id) {
               item.quantity++;
-              console.log(this.cart());
+              user = {
+                ...user,
+                cart: this.cart()
+              }
+
+              localStorage.setItem("user", JSON.stringify(user));
+
               return
             }
           }
           this.cart.update((cart) => [...cart, { product, quantity: 1 }]);
 
-          let user = JSON.parse(localStorage.getItem("user")!);
+
 
           user = {
             ...user,
@@ -59,6 +68,16 @@ export class CartService {
 
   removeFromCart(product: IProduct) {
     this.cart.update((cart) => cart.filter(i => i.product !== product));
+
+    let user = JSON.parse(localStorage.getItem("user")!);
+
+    user = {
+      ...user,
+      cart: this.cart()
+    }
+
+    localStorage.setItem("user", JSON.stringify(user));
+
   }
 
   increaseQuantity(product: IProduct) {
@@ -77,6 +96,15 @@ export class CartService {
 
       return currentCart;
     });
+
+    let user = JSON.parse(localStorage.getItem("user")!);
+
+    user = {
+      ...user,
+      cart: this.cart()
+    }
+
+    localStorage.setItem("user", JSON.stringify(user));
   }
 
   reduceQuantity(product: IProduct) {
@@ -95,6 +123,15 @@ export class CartService {
 
       return currentCart;
     });
+
+    let user = JSON.parse(localStorage.getItem("user")!);
+
+    user = {
+      ...user,
+      cart: this.cart()
+    }
+
+    localStorage.setItem("user", JSON.stringify(user));
   }
 
   toggleActive() {
@@ -105,5 +142,14 @@ export class CartService {
     window.alert("Your order has been confirmed!");
 
     this.cart.set([]);
+
+    let user = JSON.parse(localStorage.getItem("user")!);
+
+    user = {
+      ...user,
+      cart: this.cart()
+    }
+
+    localStorage.setItem("user", JSON.stringify(user));
   }
 }

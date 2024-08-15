@@ -12,13 +12,13 @@ import { AuthInterceptorService } from './core/auth/services/auth-interceptor.se
 import { ProfileComponent } from './features/profile/profile.component';
 import { authReducer } from './core/auth/state/reducers/auth.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductsSwiperComponent } from './shared/components/products-swiper/products-swiper.component';
+import { ProductsSwiperComponent } from './features/products/components/products-swiper/products-swiper.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AuthModule } from './core/auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
-import { CollectionModule } from './features/collection/collection.module';
+import { ProductsModule } from './features/products/products.module';
 
 @NgModule({
   declarations: [
@@ -35,11 +35,10 @@ import { CollectionModule } from './features/collection/collection.module';
     EffectsModule.forRoot(AuthEffects),
     HttpClientModule,
     BrowserAnimationsModule,
-    ProductsSwiperComponent,
     AuthModule,
     CoreModule,
     DashboardModule,
-    CollectionModule,
+    ProductsModule,
     SharedModule
   ],
   providers: [

@@ -1,6 +1,16 @@
 @import "../../../variables.scss";
 @import "../../../default-styles.scss";
 
+@keyframes fade-in {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.9;
+    }
+}
+
 .dashboard-container {
     position: relative;
 
@@ -41,6 +51,14 @@
 
                 position: relative;
 
+                &:hover {
+                    background: none;
+
+                    h1 {
+                        opacity: 0;
+                    }
+                }
+
                 h1 {
                     position: absolute;
                     top: 50%;
@@ -53,13 +71,7 @@
                 }
             }
 
-            .category-container:hover {
-                background: none;
 
-                h1 {
-                    opacity: 0;
-                }
-            }
 
             #electronics-cat {
                 width: 100%;
@@ -251,34 +263,44 @@
                         border: 1px solid $color-sec;
                         border-radius: 50px;
                         cursor: pointer;
+                        overflow: hidden;
+                        /* Ensure that ::before does not overflow */
+
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: 0%;
+                            top: 0%;
+                            height: 100%;
+                            width: 0%;
+                            background: $color-dark;
+                            transition: 0.5s;
+                            z-index: 0;
+                            /* Ensure it is below the text but above the button background */
+                        }
+
+                        &:hover {
+
+                            h3 {
+                                color: $color-light;
+                            }
+
+                            &::before {
+                                width: 100%;
+                            }
+                        }
+
+
 
                         h3 {
                             color: $color-sec;
                             font-weight: 500;
                             transition: 0.5s;
+                            position: relative;
+                            /* Ensure the text stays above ::before */
+                            z-index: 1;
+                            /* Make sure text is above ::before */
                         }
-                    }
-
-                    .subscribe-btn:hover {
-
-                        h3 {
-                            color: $color-light;
-                        }
-                    }
-
-                    .subscribe-btn::before {
-                        content: "";
-                        position: absolute;
-                        left: 0%;
-                        top: 0%;
-                        height: 100%;
-                        width: 0%;
-                        background: $color-dark;
-                        transition: 0.5s;
-                    }
-
-                    .subscribe-btn:hover::before {
-                        width: 100%;
                     }
                 }
             }
@@ -301,10 +323,43 @@
                         border: 1.5px solid $color-dark;
                         background: white;
                         cursor: pointer;
+                        transition: all 0.5s;
+                        z-index: 0;
+
+                        &:hover {
+                            border-color: $color-sec;
+
+                            #instagram-icon {
+                                content: url('https://img.icons8.com/?size=100&id=32309&format=png&color=c3c3c3');
+                                animation: fade-in 0.3s;
+                            }
+
+                            #facebook-icon {
+                                content: url('https://img.icons8.com/?size=100&id=87253&format=png&color=c3c3c3');
+                                animation: fade-in 0.3s;
+                            }
+                        }
+
+                        &:active {
+                            border-color: $color-dark;
+
+                            #instagram-icon {
+                                content: url('https://img.icons8.com/?size=100&id=32309&format=png&color=212322');
+                                animation: fade-in 0.3s;
+                            }
+
+                            #facebook-icon {
+                                content: url('https://img.icons8.com/?size=100&id=87253&format=png&color=212322');
+                                animation: fade-in 0.3s;
+                            }
+                        }
 
                         img {
                             width: 100%;
+                            z-index: 1;
                         }
+
+
                     }
                 }
             }

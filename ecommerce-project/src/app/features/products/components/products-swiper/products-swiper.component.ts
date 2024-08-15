@@ -1,22 +1,17 @@
-import { Component, Input, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
-import { IProduct } from '../../models/product';
+import { IProduct } from '../../models/Product.model';
 import { Subscription } from 'rxjs';
-import { CartService } from '../../../core/app-shell/cart-menu/services/cart.service';
-import { SharedModule } from '../../shared.module';
 
 @Component({
   selector: 'app-products-swiper',
   templateUrl: './products-swiper.component.html',
-  standalone: true,
-  styleUrls: ['./products-swiper.component.scss'],
-  imports: [CommonModule, SharedModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  styleUrl: './products-swiper.component.scss'
 })
 export class ProductsSwiperComponent implements OnInit {
 
   @Input() toDisplay: string | number = "";
+  @Input() related: boolean = false;
   @Input() price: number = 1000;
 
   api!: ProductsService;
@@ -27,7 +22,6 @@ export class ProductsSwiperComponent implements OnInit {
 
   constructor(
     private prodService: ProductsService,
-    private cartService: CartService
   ) { }
 
   ngOnInit(): void {

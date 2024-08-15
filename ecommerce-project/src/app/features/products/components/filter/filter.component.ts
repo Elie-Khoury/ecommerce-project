@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { SearchbarService } from '../../../../shared/components/searchbar/services/searchbar.service';
-import { ProductsService } from '../../../../shared/services/products.service';
+import { ProductsService } from '../../../products/services/products.service';
 
 @Component({
   selector: 'app-filter',

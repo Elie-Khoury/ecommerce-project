@@ -1,4 +1,4 @@
-<app-navbar [navDark]="navDark"></app-navbar>
+<app-navbar></app-navbar>
 <div class="product-container">
     <div class="img-container">
         <img [src]="selectedProduct.image" [alt]="selectedProduct.title">
@@ -10,10 +10,10 @@
             <h3>{{selectedProduct.description}}</h3>
         </div>
         <p class="price">${{selectedProduct.price}}</p>
-        <button>
+        <button (click)="addToCart(selectedProduct)">
             <h3>Add to Cart</h3>
         </button>
     </div>
 </div>
-<app-products-swiper></app-products-swiper>
+<app-products-swiper [toDisplay]="selectedProduct.category" [related]="true"></app-products-swiper>
 <hr class="custom-divider">

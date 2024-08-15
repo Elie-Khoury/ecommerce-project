@@ -1,13 +1,13 @@
-<nav class="navbar" [ngClass]="navDark ?  'dark' : 'light'">
+<nav class="navbar">
     <a class="logo-container" routerLink="/home">
         <img [src]="imgUrls.logoUrl" alt="">
     </a>
-    <div class="nav-paths">
-        <a href="">
+    <div *ngIf="!isLogin" class="nav-paths">
+        <a routerLink="/collection">
             <h3>MEN</h3>
         </a>
         <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
-        <a href="">
+        <a routerLink="/collection">
             <h3>WOMEN</h3>
         </a>
         <img class="nav-dot" [src]="imgUrls.dotUrl" alt="">
@@ -15,10 +15,10 @@
             <h3>COLLECTION</h3>
         </a>
     </div>
-    <div class="search-bar">
+    <div *ngIf="!isLogin" class="search-bar">
         <app-searchbar></app-searchbar>
     </div>
-    <div class="nav-icons">
+    <div *ngIf="!isLogin" class="nav-icons">
         <div class="nav-icon" (click)="toggleActive()">
             <button mat-icon-button>
                 <mat-icon class="material-symbols-outlined" [matBadgeHidden]="cart().length == 0"
