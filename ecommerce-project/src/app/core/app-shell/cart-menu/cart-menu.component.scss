@@ -1,4 +1,5 @@
 @import "../../../../variables.scss";
+@import "../../../../default-styles.scss";
 
 .cart-menu-container {
     width: 100%;
@@ -177,38 +178,6 @@
 
         .continue-btn:hover::after {
             height: 100%;
-        }
-
-        .confirm-btn {
-            width: 100%;
-            text-align: center;
-            background: $color-dark;
-            padding: 3% 0%;
-            border: none;
-            cursor: pointer;
-            transition: background 0.5s;
-
-            h2 {
-                color: $color-light;
-                transition: color 0.5s;
-            }
-        }
-
-        .confirm-btn:hover {
-            background: $color-sec;
-
-            h2 {
-                color: $color-dark;
-            }
-        }
-
-        .confirm-btn[disabled] {
-            background: $color-sec;
-            cursor: not-allowed;
-
-            h2 {
-                color: grey;
-            }
         }
     }
 
