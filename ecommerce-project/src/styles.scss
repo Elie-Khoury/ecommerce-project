@@ -123,3 +123,8 @@ small {
 .custom-snackbar {
     text-align: center;
 }
+
+.mat-badge-content {
+    background-color: $color-dark !important;
+    color: $color-light !important;
+}
