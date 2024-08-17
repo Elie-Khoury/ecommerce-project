@@ -50,34 +50,10 @@
             }
         }
 
-
         .price {
             font-size: 1.5em;
             font-weight: 500;
             margin: 5% 0%;
-        }
-
-        button {
-            width: 100%;
-            background: $color-dark;
-            border: none;
-            color: white;
-            padding: 3.5% 0%;
-            transition: 0.5s;
-            cursor: pointer;
-
-            h3 {
-                transition: 0.5s;
-                font-weight: 600;
-            }
-        }
-
-        button:hover {
-            background: $color-sec;
-
-            h3 {
-                color: $color-dark;
-            }
         }
     }
 

@@ -11,6 +11,7 @@ import { IsNumberPipe } from './utils/pipes/is-number.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
     FilterProductsPipe,
     IsNumberPipe,
     SnackbarComponent,
+    CustomButtonComponent,
   ],
   imports: [
     CommonModule,

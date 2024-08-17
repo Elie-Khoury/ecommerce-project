@@ -11,3 +11,35 @@
     background: white;
     height: 100vh;
 }
+
+.custom-btn {
+    width: 100%;
+    padding: 3% 0%;
+    text-align: center;
+    background: $color-dark;
+    border: none;
+    cursor: pointer;
+    transition: background 0.5s;
+
+    h2 {
+        color: $color-light;
+        transition: color 0.5s;
+    }
+}
+
+.custom-btn:hover {
+    background: $color-sec;
+
+    h2 {
+        color: $color-dark;
+    }
+}
+
+.custom-btn[disabled] {
+    background: $color-sec;
+    cursor: not-allowed;
+
+    h2 {
+        color: grey;
+    }
+}
