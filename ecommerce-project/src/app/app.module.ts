@@ -9,7 +9,6 @@ import { AuthEffects } from './core/auth/state/effects/auth.effects';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptorService } from './core/auth/services/auth-interceptor.service';
-import { ProfileComponent } from './features/profile/profile.component';
 import { authReducer } from './core/auth/state/reducers/auth.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -18,12 +17,12 @@ import { CoreModule } from './core/core.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './features/products/products.module';
+import { ProfileModule } from './features/profile/profile.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +38,7 @@ import { ProductsModule } from './features/products/products.module';
     CoreModule,
     DashboardModule,
     ProductsModule,
+    ProfileModule,
     SharedModule,
   ],
   providers: [

@@ -1,1 +1,55 @@
-<p>profile works!</p>
+<div class="container">
+    <app-navbar></app-navbar>
+    <div class="container-wrapper">
+        <div class="section-details" id="account-details">
+            <div class="content-wrapper">
+                <div class="title-container">
+                    <h1>Account Details</h1>
+                </div>
+                <div class="details-content">
+                    <div class="left-container account-details-content">
+                        <h2>NAME</h2>
+                        <h2>SURNAME</h2>
+                        <h2>E-MAIL</h2>
+                        <h2>PHONE</h2>
+                        <h2>ADDRESS</h2>
+                        <h2>STREET</h2>
+                        <h2>BUILDING #</h2>
+                    </div>
+                    <div class="right-container account-details-content">
+                        <h3 [appAddClassIfRequired]="userDetails.name">{{userDetails.name}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.surname">{{userDetails.surname}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.email">{{userDetails.email}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.phone">{{userDetails.phone}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.address">{{userDetails.address}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.street">{{userDetails.street}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.building">{{userDetails.building}}</h3>
+                    </div>
+                </div>
+                <div class="account-btn">
+                    <button>Edit Details</button>
+                </div>
+            </div>
+        </div>
+        <div class="section-details" id="payment-details">
+            <div class="content-wrapper">
+                <div class="title-container">
+                    <h1>Payment Details</h1>
+                </div>
+                <div class="details-content">
+                    <div class="left-container payment-details-content">
+                        <h2>NAME</h2>
+                        <h2>CARD #</h2>
+                    </div>
+                    <div class="right-container payment-details-content">
+                        <h3 [appAddClassIfRequired]="userDetails.fullName">{{userDetails.fullName}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.cardNum}}</h3>
+                    </div>
+                </div>
+                <div class="-payment-btn">
+                    <button>Edit Payment Method</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

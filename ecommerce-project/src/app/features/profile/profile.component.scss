@@ -1,0 +1,86 @@
+@import "../../../variables.scss";
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .container-wrapper {
+        width: 100%;
+        padding: 0% 10% 0% 10%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        .section-details {
+            width: 40%;
+            height: 100%;
+
+            .content-wrapper {
+                width: 80%;
+                height: 70vh;
+                padding: 10% 0%;
+                margin-inline: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: flex;
+                justify-content: space-between;
+
+                .title-container {
+                    h1 {
+                        font-weight: 500;
+                    }
+                }
+
+                .details-content {
+                    display: flex;
+                    gap: 30%;
+                    height: 35vh;
+
+                    h2 {
+                        color: $color-sec;
+                        font-size: 0.8rem;
+                        font-weight: 500;
+                    }
+
+                    h3 {
+                        color: $color-sec;
+                        font-size: 0.8rem;
+                        font-weight: 300;
+                    }
+
+                    .required-class {
+                        color: $color-error !important;
+                    }
+
+                    .left-container {
+                        white-space: nowrap;
+                        overflow-x: hidden;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .right-container {
+                        overflow-x: hidden;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .account-details-content {
+                        justify-content: space-between;
+                    }
+
+                    .payment-details-content {
+                        gap: 10%;
+                    }
+                }
+            }
+        }
+
+        #account-details {
+            background-color: $bg-color;
+        }
+    }
+}
