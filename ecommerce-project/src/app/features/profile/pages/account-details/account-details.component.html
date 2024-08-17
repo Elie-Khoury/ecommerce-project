@@ -1,0 +1,64 @@
+<div class="form-container">
+    <div class="form-wrapper">
+        <div class="title-container">
+            <h1>Account Details</h1>
+        </div>
+
+        <form [formGroup]="accountDetailsForm" (ngSubmit)="onSubmit()">
+            <div class="input-container">
+                <input placeholder="Name" type="text" name="name" id="name" formControlName="name">
+                <label for="name">
+                    <h3>Name</h3>
+                </label>
+            </div>
+
+            <div class="input-container">
+                <input placeholder="Surname" type="text" name="surname" id="surname" formControlName="surname">
+                <label for="surname">
+                    <h3>Surname</h3>
+                </label>
+            </div>
+
+            <div class="input-container">
+                <input placeholder="E-mail" type="email" name="email" id="email" formControlName="email">
+                <label for="email">
+                    <h3>E-mail</h3>
+                </label>
+            </div>
+
+            <div class="input-container">
+                <input placeholder="Phone" type="text" name="phone" id="phone" formControlName="phone">
+                <label for="phone">
+                    <h3>Phone</h3>
+                </label>
+            </div>
+            <div class="input-container">
+
+                <input placeholder="Address" type="text" name="address" id="address" formControlName="address">
+                <label for="address">
+                    <h3>Address</h3>
+                </label>
+            </div>
+
+            <div class="input-container">
+                <input placeholder="Street" type="text" name="street" id="street" formControlName="street">
+                <label for="street">
+                    <h3>Street</h3>
+                </label>
+            </div>
+
+            <div class="input-container">
+                <input placeholder="Building" type="text" name="building" id="building" formControlName="building">
+                <label for="building">
+                    <h3>Building</h3>
+                </label>
+            </div>
+
+            <div class="btn-container">
+                <button class="custom-btn" type="submit">
+                    <h2>Update</h2>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

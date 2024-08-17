@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { IUserDetails } from '../models/UserDetails.model';
 import { jwtDecode } from 'jwt-decode';
+import { IAccountDetails } from '../models/AccountDetails.model';
 
 @Injectable({
   providedIn: 'root'
@@ -48,8 +49,32 @@ export class ProfileService {
     return this.userDetails();
   }
 
-  updateUserDetails(userDetails: IUserDetails) {
-    this.userDetails.set(userDetails);
+  getAccountDetails(): IAccountDetails {
+    return {
+      name: this.userDetails().name,
+      surname: this.userDetails().surname,
+      email: this.userDetails().email,
+      phone: this.userDetails().phone === 'required*' ? '' : this.userDetails().phone,
+      address: this.userDetails().address === 'required*' ? '' : this.userDetails().address,
+      street: this.userDetails().street === 'required*' ? '' : this.userDetails().street,
+      building: this.userDetails().building === 'required*' ? '' : this.userDetails().building
+    }
+  }
+
+  updateAccountDetails(accountDetails: IAccountDetails) {
+
+    Object.keys(accountDetails).forEach(key => {
+      if (accountDetails[key] === '') {
+        accountDetails[key] = 'required*'
+      }
+    })
+
+    this.userDetails.update(userDetails => {
+      return {
+        ...userDetails,
+        ...accountDetails
+      }
+    })
 
     let user = JSON.parse(localStorage.getItem("user")!);
 

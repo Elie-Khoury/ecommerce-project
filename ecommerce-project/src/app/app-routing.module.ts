@@ -6,6 +6,7 @@ import { ProfileComponent } from './features/profile/profile.component';
 import { authGuard } from './core/auth/services/auth.guard';
 import { CollectionComponent } from './features/products/pages/collection/collection.component';
 import { ProductDetailsComponent } from './features/products/pages/product-details/product-details.component';
+import { AccountDetailsComponent } from './features/profile/pages/account-details/account-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'collection', component: CollectionComponent },
   { path: 'collection/product/:id', component: ProductDetailsComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  { path: 'profile/account-details', component: AccountDetailsComponent, canActivate: [authGuard] },
+  { path: '**', redirectTo: 'home' }
 ];
 
 @NgModule({
