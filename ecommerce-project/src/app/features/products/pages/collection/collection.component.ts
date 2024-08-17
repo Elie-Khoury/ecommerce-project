@@ -13,17 +13,17 @@ export class CollectionComponent implements OnInit, OnDestroy {
   categorySubscription!: Subscription;
   productSubscription!: Subscription;
 
-  navDark!: boolean;
+  products!: IProduct[];
+  categories!: string[];
+
+  isActive = signal(false);
+
   formValues = {
     sortBy: '',
     price: 0,
     category: []
   }
 
-  isActive = signal(false);
-
-  products!: IProduct[];
-  categories!: string[];
   toDisplay: string | number = "jewelery";
 
   constructor(private productsService: ProductsService) { }
@@ -34,8 +34,6 @@ export class CollectionComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
-    this.navDark = true;
 
     this.categorySubscription = this.productsService.getCategories().subscribe((categories) => {
       this.categories = categories;

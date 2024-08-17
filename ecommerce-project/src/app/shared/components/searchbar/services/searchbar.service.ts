@@ -1,8 +1,6 @@
-import { effect, Injectable, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { IProduct } from '../../../../features/products/models/Product.model';
-import { HttpClient } from '@angular/common/http';
 import { env } from '../../../../../envs/env.dev';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -13,26 +11,33 @@ export class SearchbarService {
   baseUrl: string = env.STORE_API;
 
   overlayOpen = signal(false);
-  recentSearches = signal<string[]>(JSON.parse(localStorage.getItem("recentSearches") ?? '[]'));
+  recentSearches = signal<IProduct[]>(localStorage.getItem("user") ? (JSON.parse(localStorage.getItem("user")!).recentSearches || []) : []);
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private router: Router) { }
 
-  onSearch(searchTerm: string) {
+  onSearch(search: IProduct) {
     this.overlayOpen.set(false);
-    // this.router.navigateByUrl("/profile");
-    this.addToRecentSearches(searchTerm);
+    this.router.navigateByUrl("/collection/product/" + search.id);
   }
 
-  addToRecentSearches(search: string) {
-    const lowerCaseTerm = search.toLowerCase();
-    this.recentSearches.update(searches => [lowerCaseTerm, ...searches.filter(s => s !== lowerCaseTerm)]);
+  addToRecentSearches(search: IProduct) {
+    this.recentSearches.update(searches => [search, ...searches.filter(s => s !== search)]);
+    this.setInLocalStorage();
   }
 
-  removeFromRecentSearches(search: string) {
+  removeFromRecentSearches(search: IProduct) {
     this.recentSearches.update(searches => searches.filter(s => s !== search));
+    this.setInLocalStorage();
   }
 
-  saveLocalStorage = effect(() => {
-    localStorage.setItem("recentSearches", JSON.stringify(this.recentSearches()));
-  })
+  setInLocalStorage() {
+    let user = JSON.parse(localStorage.getItem("user")!);
+
+    user = {
+      ...user,
+      recentSearches: this.recentSearches()
+    }
+
+    localStorage.setItem("user", JSON.stringify(user));
+  }
 }

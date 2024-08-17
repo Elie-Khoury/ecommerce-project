@@ -1,0 +1,17 @@
+import { Component, Inject } from '@angular/core';
+import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
+
+@Component({
+  selector: 'app-snackbar',
+  template: `<span [ngStyle]="{'background-color': data.backgroundColor}" class="custom-snackbar">{{ data.message }}</span>`,
+  styles: [`
+    .custom-snackbar {
+      color: white;
+      padding: 16px;
+      border-radius: 4px;
+    }
+  `]
+})
+export class SnackbarComponent {
+  constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) { }
+}

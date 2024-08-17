@@ -1,4 +1,8 @@
 <app-navbar></app-navbar>
+@if(isLoading()) {
+<div class="custom-space"></div>
+}
+@else{
 <div class="product-container">
     <div class="img-container">
         <img [src]="selectedProduct.image" [alt]="selectedProduct.title">
@@ -15,5 +19,7 @@
         </button>
     </div>
 </div>
-<app-products-swiper [toDisplay]="selectedProduct.category" [related]="true"></app-products-swiper>
+<app-products-swiper [toDisplay]="selectedProduct.category" [excluded]="selectedProduct"></app-products-swiper>
+}
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 <hr class="custom-divider">

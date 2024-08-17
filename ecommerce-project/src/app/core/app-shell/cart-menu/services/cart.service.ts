@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CartService {
 
-  public cart = signal<ICartItem[]>(localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")!).cart : []);
+  public cart = signal<ICartItem[]>(localStorage.getItem("user") ? (JSON.parse(localStorage.getItem("user")!).cart || []) : []);
 
   public isActive = signal<boolean>(false);
 
@@ -25,45 +25,30 @@ export class CartService {
   ) { }
 
   addToCart(product: IProduct) {
-    let Subscription = this.store.select(selectUser).pipe(
-      take(1),
-      tap(user => {
-        if (user) {
+    let user = JSON.parse(localStorage.getItem("user")!);
 
-          let user = JSON.parse(localStorage.getItem("user")!);
+    for (let item of this.cart()) {
 
-          for (let item of this.cart()) {
-            if (item.product.id === product.id) {
-              item.quantity++;
-              user = {
-                ...user,
-                cart: this.cart()
-              }
-
-              localStorage.setItem("user", JSON.stringify(user));
-
-              return
-            }
-          }
-          this.cart.update((cart) => [...cart, { product, quantity: 1 }]);
-
-
-
-          user = {
-            ...user,
-            cart: this.cart()
-          }
-
-          localStorage.setItem("user", JSON.stringify(user));
+      if (item.product.id === product.id) {
+        item.quantity++;
+        user = {
+          ...user,
+          cart: this.cart()
         }
-        else {
-          this.router.navigateByUrl("/login");
-        }
-      })
 
-    ).subscribe();
+        localStorage.setItem("user", JSON.stringify(user));
 
-    Subscription.unsubscribe();
+        return
+      }
+    }
+    this.cart.update((cart) => [...cart, { product, quantity: 1 }]);
+
+    user = {
+      ...user,
+      cart: this.cart()
+    }
+
+    localStorage.setItem("user", JSON.stringify(user));
   }
 
   removeFromCart(product: IProduct) {

@@ -1,7 +1,6 @@
-import { Component, EventEmitter, OnInit, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, signal, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
-import { SearchbarService } from '../../../../shared/components/searchbar/services/searchbar.service';
-import { ProductsService } from '../../../products/services/products.service';
+import { IProduct } from '../../models/Product.model';
 
 @Component({
   selector: 'app-filter',
@@ -12,7 +11,12 @@ export class FilterComponent implements OnInit {
 
   @Output() formValueChanged = new EventEmitter<any>();
 
-  categories!: string[];
+  @Input() products!: IProduct[];
+  @Input() categories!: string[];
+
+  maxPrice!: number;
+
+  readonly panelOpenState = signal(false);
 
   productForm: FormGroup = this.fb.group({
     sortBy: [''],
@@ -20,14 +24,7 @@ export class FilterComponent implements OnInit {
     category: this.fb.array([])
   });
 
-  maxPrice!: number;
-
-  readonly panelOpenState = signal(false);
-
-  constructor(
-    private fb: FormBuilder,
-    private productsService: ProductsService
-  ) { }
+  constructor(private fb: FormBuilder) { }
 
   onCheckboxChange(e: any) {
     const category: FormArray = <FormArray>this.productForm.get('category');
@@ -46,15 +43,13 @@ export class FilterComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.productsService.getProducts().subscribe((products) => {
-      this.maxPrice = Math.max(...products.map(item => item.price));
-      this.maxPrice = Math.ceil(this.maxPrice);
-    });
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['products'] && changes['products'].currentValue) {
+      this.maxPrice = Math.ceil(Math.max(...this.products.map(item => item.price)));
+    }
+  }
 
-    this.productsService.getCategories().subscribe((categories) => {
-      this.categories = categories;
-    })
+  ngOnInit(): void {
 
     this.productForm.valueChanges.subscribe(value => {
       this.formValueChanged.emit(value);

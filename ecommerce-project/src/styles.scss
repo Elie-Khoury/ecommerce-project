@@ -61,6 +61,10 @@ body {
     overflow-x: hidden;
 }
 
+section {
+    margin-top: 15vh;
+}
+
 img,
 svg,
 picture {
@@ -114,4 +118,8 @@ small {
     font-size: 0.8em;
     font-weight: 500;
     color: rgb(240, 0, 0);
+}
+
+.custom-snackbar {
+    text-align: center;
 }

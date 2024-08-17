@@ -21,8 +21,8 @@
     <div *ngIf="!isLogin" class="nav-icons">
         <div class="nav-icon" (click)="toggleActive()">
             <button mat-icon-button>
-                <mat-icon class="material-symbols-outlined" [matBadgeHidden]="cart().length == 0"
-                    [matBadge]="cart().length" matBadgePosition="after" matBadgeColor="accent">
+                <mat-icon class="material-symbols-outlined custom-badge" [matBadgeHidden]="cart().length == 0"
+                    [matBadge]="cart().length" matBadgePosition="after">
                     shopping_bag
                 </mat-icon>
             </button>

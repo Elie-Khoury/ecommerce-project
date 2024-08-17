@@ -1,97 +1,109 @@
 <div class="dashboard-container">
     <app-hero></app-hero>
-    <app-products-swiper [toDisplay]="toDisplay"></app-products-swiper>
+    <section><app-products-swiper [toDisplay]="toDisplay"></app-products-swiper></section>
     <hr class="custom-divider">
 
-    <div class="categories-container">
-        <a routerLink="/collection" id="electronics-wrapper"
-            [ngStyle]="{backgroundImage: 'url(' + electronicsBgImg + ')'}" class="container-wrapper">
-            <div id="electronics-cat" class="category-container">
-                <h1>ELECTRONICS</h1>
-            </div>
-        </a>
-        <a routerLink="/collection" id="jewelry-wrapper" [ngStyle]="{backgroundImage: 'url(' + jewelryBgImg + ')'}"
-            class="container-wrapper">
-            <div id="jewelry-cat" class="category-container">
-                <h1>JEWELRY</h1>
-            </div>
-        </a>
-        <div id="clothing-wrapper" [ngStyle]="{backgroundImage: 'url(' + clothingBgImg + ')'}"
-            class="container-wrapper">
-            <div id="clothing-cat" class="category-container">
-                <h1>CLOTHING</h1>
+    <section>
+        <div class="categories-container">
+            <a routerLink="/collection" id="electronics-wrapper"
+                [ngStyle]="{backgroundImage: 'url(' + electronicsBgImg + ')'}" class="container-wrapper">
+                <div id="electronics-cat" class="category-container">
+                    <h1>ELECTRONICS</h1>
+                </div>
+            </a>
+            <a routerLink="/collection" id="jewelry-wrapper" [ngStyle]="{backgroundImage: 'url(' + jewelryBgImg + ')'}"
+                class="container-wrapper">
+                <div id="jewelry-cat" class="category-container">
+                    <h1>JEWELRY</h1>
+                </div>
+            </a>
+            <div id="clothing-wrapper" [ngStyle]="{backgroundImage: 'url(' + clothingBgImg + ')'}"
+                class="container-wrapper">
+                <div id="clothing-cat" class="category-container">
+                    <h1>CLOTHING</h1>
 
-                <a routerLink="/collection" class="women-container">
-                    <h2>WOMEN</h2>
-                    <hr>
-                </a>
-                <a routerLink="/collection" class="men-container">
-                    <h2>MEN</h2>
-                    <hr>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="cards-container">
-        <div class="cards-wrapper">
-            <div class="card-container">
-                <div class="icon-container">
-                    <mat-icon>credit_card</mat-icon>
-                </div>
-                <div class="content-container">
-                    <h2>Secure Payment</h2>
-                    <h3>credit card</h3>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="icon-container">
-                    <mat-icon>local_shipping</mat-icon>
-                </div>
-                <div class="content-container">
-                    <h2>Simplified Return</h2>
-                    <h3>(under 60 days)</h3>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="icon-container">
-                    <mat-icon>support_agent</mat-icon>
-                </div>
-                <div class="content-container">
-                    <h2>Reliable Support</h2>
-                    <h3>24/7 support</h3>
+                    <a routerLink="/collection" class="women-container">
+                        <h2>WOMEN</h2>
+                        <hr>
+                    </a>
+                    <a routerLink="/collection" class="men-container">
+                        <h2>MEN</h2>
+                        <hr>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="newsletter-container">
-        <div class="newsletter-wrapper">
-            <div class="newsletter-content">
-                <div class="newsletter-title">
-                    <h1>NEWSLETTER</h1>
-                    <h3>Discover in preview all our new products, our latest actions and get 10$ off your first order by
-                        subscribing to our newsletter!</h3>
+    <section>
+        <div class="cards-container">
+            <div class="cards-wrapper">
+                <div class="card-container">
+                    <div class="icon-container">
+                        <mat-icon>credit_card</mat-icon>
+                    </div>
+                    <div class="content-container">
+                        <h2>Secure Payment</h2>
+                        <h3>credit card</h3>
+                    </div>
                 </div>
-                <div class="newsletter-input">
-                    <input type="email" placeholder="Type your email address here">
-                    <button class="subscribe-btn">
-                        <h3>Subscribe</h3>
-                    </button>
+                <div class="card-container">
+                    <div class="icon-container">
+                        <mat-icon>local_shipping</mat-icon>
+                    </div>
+                    <div class="content-container">
+                        <h2>Simplified Return</h2>
+                        <h3>(under 60 days)</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="social-media-container">
-                <div class="icons-container">
-                    <button class="sm-icon">
-                        <img id="instagram-icon" src="https://img.icons8.com/?size=100&id=32309&format=png&color=212322"
-                            alt="Instagram icon">
-                    </button>
-                    <button class="sm-icon">
-                        <img id="facebook-icon" src="https://img.icons8.com/?size=100&id=87253&format=png&color=212322"
-                            alt="Facebook icon">
-                    </button>
+                <div class="card-container">
+                    <div class="icon-container">
+                        <mat-icon>support_agent</mat-icon>
+                    </div>
+                    <div class="content-container">
+                        <h2>Reliable Support</h2>
+                        <h3>24/7 support</h3>
+                    </div>
                 </div>
-                <h2>Stay up-to-date through our social media platforms!</h2>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section>
+        <div class="newsletter-container">
+            <div class="newsletter-wrapper">
+                <div class="newsletter-content">
+                    <div class="newsletter-title">
+                        <h1>NEWSLETTER</h1>
+                        <h3>Discover in preview all our new products, our latest actions and get 10$ off your first
+                            order by
+                            subscribing to our newsletter!</h3>
+                    </div>
+                    <div class="newsletter-input">
+                        <input type="email" placeholder="Type your email address here">
+                        <button class="subscribe-btn">
+                            <h3>Subscribe</h3>
+                        </button>
+                    </div>
+                </div>
+                <div class="social-media-container">
+                    <div class="icons-container">
+                        <a target="_blank"
+                            href="https://www.instagram.com/inmind.ai?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            class="sm-icon">
+                            <img id="instagram-icon"
+                                src="https://img.icons8.com/?size=100&id=32309&format=png&color=212322"
+                                alt="Instagram icon">
+                        </a>
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=100063900861222"
+                            class="sm-icon">
+                            <img id="facebook-icon"
+                                src="https://img.icons8.com/?size=100&id=87253&format=png&color=212322"
+                                alt="Facebook icon">
+                        </a>
+                    </div>
+                    <h2>Stay up-to-date through our social media platforms!</h2>
+                </div>
+            </div>
+        </div>
+    </section>

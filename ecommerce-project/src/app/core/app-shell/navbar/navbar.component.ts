@@ -18,6 +18,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   routerSubscription!: Subscription;
 
+  // Use CSS class names defined in SCSS
+  badgeClass: string = 'custom-badge';
+
+  // Method to change badge color
+  changeBadgeColor(colorClass: string) {
+    this.badgeClass = colorClass;
+  }
+
   isLogin: boolean = false;
 
   imgUrls!: IImageUrls;
@@ -42,6 +50,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
+    this.changeBadgeColor('custom-badge');
 
     this.routerSubscription = this.router.events.subscribe(() => {
       const currentRoute = this.router.url;
