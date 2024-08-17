@@ -26,11 +26,11 @@
                         <h3 [appAddClassIfRequired]="userDetails.building">{{userDetails.building}}</h3>
                     </div>
                 </div>
-                <div class="account-btn">
-                    <button class="custom-btn" (click)="editDetails()">
+                <a routerLink="/profile/account-details" class="account-btn">
+                    <button class="custom-btn">
                         <h2>Edit Details</h2>
                     </button>
-                </div>
+                </a>
             </div>
         </div>
         <div class="section-details" id="payment-details">
@@ -46,13 +46,16 @@
                     <div class="right-container payment-details-content">
                         <h3 [appAddClassIfRequired]="userDetails.fullName">{{userDetails.fullName}}</h3>
                         <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.cardNum}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.expiration}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.cvc}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.country}}</h3>
                     </div>
                 </div>
-                <div class="payment-btn">
+                <a routerLink="/profile/payment-details" class="payment-btn">
                     <button class="custom-btn">
                         <h2>Edit Payment Method</h2>
                     </button>
-                </div>
+                </a>
             </div>
         </div>
     </div>

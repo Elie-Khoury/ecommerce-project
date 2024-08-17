@@ -1,0 +1,55 @@
+<div class="form-container">
+    <div class="form-wrapper">
+        <div class="title-container">
+            <h1>Payment Details</h1>
+        </div>
+
+        <form [formGroup]="paymentDetailsForm" (ngSubmit)="onSubmit()">
+
+            <div class="input-container">
+                <input placeholder="Full Name" type="text" name="fullName" id="fullName" formControlName="fullName">
+                <label for="fullName">
+                    <h3>Full Name</h3>
+                </label>
+            </div>
+
+            <div class="input-container">
+                <input placeholder="Card Number" type="number" name="cardNum" id="cardNum" formControlName="cardNum">
+                <label for="cardNum">
+                    <h3>Card Number</h3>
+                </label>
+            </div>
+
+            <div class="flex-horz">
+                <div class="input-container">
+
+                    <input placeholder="expiration" type="date" name="expiration" id="expiration"
+                        formControlName="expiration">
+                    <label for="expiration">
+                        <h3>Expiration</h3>
+                    </label>
+                </div>
+
+                <div class="input-container">
+                    <input placeholder="CVC" type="number" name="CVC" id="CVC" formControlName="CVC">
+                    <label for="CVC">
+                        <h3>CVC</h3>
+                    </label>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <input placeholder="Country" type="text" name="country" id="country" formControlName="country">
+                <label for="country">
+                    <h3>Country</h3>
+                </label>
+            </div>
+
+            <div class="btn-container">
+                <button class="custom-btn" type="submit">
+                    <h2>Update</h2>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

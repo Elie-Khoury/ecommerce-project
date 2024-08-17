@@ -27,7 +27,7 @@ export class AccountDetailsComponent implements OnInit {
   ) { }
 
   onSubmit(): void {
-    this.profileService.updateAccountDetails(this.accountDetailsForm.value);
+    this.profileService.updateDetails(this.accountDetailsForm.value);
     this.router.navigateByUrl('/profile');
   }
 

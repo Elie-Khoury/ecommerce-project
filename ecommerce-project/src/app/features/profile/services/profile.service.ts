@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 import { IUserDetails } from '../models/UserDetails.model';
 import { jwtDecode } from 'jwt-decode';
 import { IAccountDetails } from '../models/AccountDetails.model';
+import { IPaymentDetails } from '../models/PaymentDetails.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,9 +32,12 @@ export class ProfileService {
         address: 'required*',
         street: 'required*',
         building: 'required*',
-        cardNum: 'required*',
         //@ts-ignore
-        fullName: decodedToken.name
+        fullName: decodedToken.name,
+        cardNum: 'required*',
+        expiration: 'required*',
+        cvc: 'required*',
+        country: 'required*',
       })
 
       user = {
@@ -61,18 +65,28 @@ export class ProfileService {
     }
   }
 
-  updateAccountDetails(accountDetails: IAccountDetails) {
+  getPaymentDetails(): IPaymentDetails {
+    return {
+      fullName: this.userDetails().fullName === 'required*' ? '' : this.userDetails().fullName,
+      cardNum: this.userDetails().cardNum === 'required*' ? '' : this.userDetails().fullName,
+      expiration: this.userDetails().expiration === 'required*' ? '' : this.userDetails().expiration,
+      cvc: this.userDetails().cvc === 'required*' ? '' : this.userDetails().cvc,
+      country: this.userDetails().country === 'required*' ? '' : this.userDetails().country,
+    }
+  }
 
-    Object.keys(accountDetails).forEach(key => {
-      if (accountDetails[key] === '') {
-        accountDetails[key] = 'required*'
+  updateDetails(details: (IAccountDetails | IPaymentDetails)) {
+
+    Object.keys(details).forEach(key => {
+      if (details[key] === '') {
+        details[key] = 'required*'
       }
     })
 
     this.userDetails.update(userDetails => {
       return {
         ...userDetails,
-        ...accountDetails
+        ...details
       }
     })
 

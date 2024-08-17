@@ -1,3 +1,9 @@
+.flex-horz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .custom-divider {
     width: 3%;
     height: 7px;

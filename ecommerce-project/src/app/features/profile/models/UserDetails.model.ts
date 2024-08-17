@@ -6,6 +6,9 @@ export interface IUserDetails {
     address: string,
     street: string,
     building: string,
+    fullName: string,
     cardNum: string,
-    fullName: string
+    expiration: string,
+    cvc: string,
+    country: string
 }

@@ -7,6 +7,7 @@ import { authGuard } from './core/auth/services/auth.guard';
 import { CollectionComponent } from './features/products/pages/collection/collection.component';
 import { ProductDetailsComponent } from './features/products/pages/product-details/product-details.component';
 import { AccountDetailsComponent } from './features/profile/pages/account-details/account-details.component';
+import { PaymentDetailsComponent } from './features/profile/pages/payment-details/payment-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'collection/product/:id', component: ProductDetailsComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
   { path: 'profile/account-details', component: AccountDetailsComponent, canActivate: [authGuard] },
+  { path: 'profile/payment-details', component: PaymentDetailsComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: 'home' }
 ];
 
