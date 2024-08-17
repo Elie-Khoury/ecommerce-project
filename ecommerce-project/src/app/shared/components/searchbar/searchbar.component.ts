@@ -3,7 +3,9 @@ import { SearchbarService } from './services/searchbar.service';
 import { IProduct } from '../../../features/products/models/Product.model';
 import { FormControl } from '@angular/forms';
 import { ProductsService } from '../../../features/products/services/products.service';
-import { Subscription } from 'rxjs';
+import { Subscription, take, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectUser } from '../../../core/auth/state/selectors/auth.selectors';
 
 @Component({
   selector: 'app-searchbar',
@@ -17,25 +19,36 @@ export class SearchbarComponent implements OnInit, OnDestroy {
   searchTerm = new FormControl('');
 
   products!: IProduct[];
-  filteredProducts!: IProduct[];
+  filteredProducts: IProduct[] = [];
 
   overlayOpen = this.searchService.overlayOpen;
 
   recentSearches = this.searchService.recentSearches;
 
   constructor(
+    private store: Store,
     private searchService: SearchbarService,
     private productsService: ProductsService
   ) { }
 
-  onSearch(search: string | null) {
+  onSearch(search: IProduct | null) {
 
     if (!search) { return; }
     this.searchTerm.setValue('');
+
+    this.store.select(selectUser).pipe(
+      take(1),
+      tap(user => {
+        if (user) {
+          this.searchService.addToRecentSearches(search);
+        }
+      })
+    ).subscribe();
+
     this.searchService.onSearch(search);
   }
 
-  removeFromRecentSearches(search: string) {
+  removeFromRecentSearches(search: IProduct) {
     this.searchService.removeFromRecentSearches(search);
   }
 

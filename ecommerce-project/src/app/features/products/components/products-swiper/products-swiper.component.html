@@ -1,5 +1,5 @@
 <div class="title-container">
-    @if(related) {
+    @if(excluded) {
     <h1>RELATED PRODUCTS</h1>
     }
     @else{
@@ -13,11 +13,19 @@
 
     <hr class="decorative-line">
 </div>
+@if(isLoading()) {
+<div class="spinner-container">
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0)" color="#c3c3c3" name="swiperSpinner" [fullScreen]='false'
+        type="ball-scale-multiple">
+    </ngx-spinner>
+</div>
+}
+@else{
 <swiper-container slides-per-view="3" space-between="30" keyboard="true">
-
     @for (product of products | sortProducts:sortBy:price; track product.id){
     <swiper-slide>
         <app-product-card [product]="product"></app-product-card>
     </swiper-slide>
     }
 </swiper-container>
+}

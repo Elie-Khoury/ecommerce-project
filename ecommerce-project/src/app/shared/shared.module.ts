@@ -8,13 +8,17 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { MatDivider } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { IsNumberPipe } from './utils/pipes/is-number.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 
 @NgModule({
   declarations: [
     SearchbarComponent,
     FilterProductsPipe,
-    IsNumberPipe
+    IsNumberPipe,
+    SnackbarComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +27,8 @@ import { IsNumberPipe } from './utils/pipes/is-number.pipe';
     MatDivider,
     MatIconModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
     MatListModule
   ],
   exports: [

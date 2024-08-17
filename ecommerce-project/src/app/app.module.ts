@@ -12,13 +12,13 @@ import { AuthInterceptorService } from './core/auth/services/auth-interceptor.se
 import { ProfileComponent } from './features/profile/profile.component';
 import { authReducer } from './core/auth/state/reducers/auth.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductsSwiperComponent } from './features/products/components/products-swiper/products-swiper.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AuthModule } from './core/auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { DashboardModule } from './features/dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './features/products/products.module';
+
 
 @NgModule({
   declarations: [
@@ -39,12 +39,13 @@ import { ProductsModule } from './features/products/products.module';
     CoreModule,
     DashboardModule,
     ProductsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
     provideClientHydration(),
     provideAnimationsAsync(),
+
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -1,8 +1,8 @@
 <div class="search-input-container" cdkOverlayOrigin #overlayPosition="cdkOverlayOrigin"
   [ngClass]="overlayOpen() ? 'mat-elevation-z2' : ''">
   <mat-icon class="material-symbols-outlined">search</mat-icon>
-  <input type="text" placeholder="" [formControl]="searchTerm" (click)="overlayOpen.set(true)"
-    (keydown.ENTER)="onSearch(searchTerm.value)" />
+  <input type="text" placeholder="" [formControl]="searchTerm" (click)="overlayOpen.set(true)" />
+  <!-- (keydown.ENTER)="onSearch(searchTerm.value)"  -->
   @if(searchTerm.value != ''){
   <button class="clear-btn" mat-icon-button (click)="searchTerm.setValue('')">
     <mat-icon>close</mat-icon>
@@ -17,10 +17,10 @@
     <mat-divider></mat-divider>
     <mat-action-list>
       @if(searchTerm.value == ''){
-      @for (search of recentSearches().slice(0,5); track search) {
+      @for (search of recentSearches().slice(0,5); track search.id) {
       <mat-list-item (click)="onSearch(search)">
         <mat-icon matListItemIcon>history</mat-icon>
-        <h3 matListItemTitle>{{ search }}</h3>
+        <h3 matListItemTitle>{{ search.title }}</h3>
         <button class="close-btn" matListItemMeta mat-icon-button
           (click)="removeFromRecentSearches(search); $event.stopPropagation()">
           <mat-icon>close</mat-icon>
@@ -30,8 +30,8 @@
       }
       @else{
       @if(filteredProducts.length > 0){
-      @for (product of filteredProducts.slice(0,5); track product) {
-      <mat-list-item (click)="onSearch(product.title)">
+      @for (product of filteredProducts.slice(0,5); track product.id) {
+      <mat-list-item (click)="onSearch(product)">
         <mat-icon matListItemIcon>search</mat-icon>
         <h3 matListItemTitle>{{ product.title }}</h3>
       </mat-list-item>

@@ -1,7 +1,10 @@
 <div class="grid-container">
+    @if(!isLoading()) {
     <div class="grid-wrapper">
         @for(product of products | sortProducts:sortBy:price; track product.id){
         <app-product-card [product]="product"></app-product-card>
         }
     </div>
+    }
+    <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 </div>
