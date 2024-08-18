@@ -1,0 +1,27 @@
+<div class=" chatbox">
+    <div class="chatbox__support">
+        <div class="chatbox__header">
+            <div class="chatbox__image--header">
+                <mat-icon class="material-symbols-outlined">support_agent</mat-icon>
+            </div>
+            <div class="chatbox__content--header">
+                <h2>Chat support</h2>
+            </div>
+        </div>
+        <div class="chatbox__messages">
+            <div></div>
+        </div>
+        <div class="chatbox__footer">
+            <input type="text" placeholder="Write a message...">
+            <button class="chatbox__send--footer send__button">
+                <img src="https://img.icons8.com/?size=100&id=iNCSLc63j3gG&format=png&color=FFFFFF" alt="">
+            </button>
+        </div>
+    </div>
+    <div class="chatbox__button">
+        <button>
+            <mat-icon class="material-symbols-outlined">chat_bubble</mat-icon>
+        </button>
+    </div>
+</div>
+<div class="bg-overlay" [ngClass]="state ? 'active' : ''"></div>
