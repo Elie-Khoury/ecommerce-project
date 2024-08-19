@@ -11,13 +11,15 @@ import { FooterComponent } from './app-shell/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BadgeComponent } from './app-shell/badge/badge.component';
+import { ChatBotComponent } from './app-shell/chat-bot/chat-bot.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     CartMenuComponent,
     FooterComponent,
-    BadgeComponent
+    BadgeComponent,
+    ChatBotComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { BadgeComponent } from './app-shell/badge/badge.component';
   exports: [
     NavbarComponent,
     CartMenuComponent,
-    FooterComponent
+    FooterComponent,
+    ChatBotComponent
   ],
 })
 export class CoreModule { }
