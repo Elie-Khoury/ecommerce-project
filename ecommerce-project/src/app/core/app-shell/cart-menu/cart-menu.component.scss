@@ -29,7 +29,6 @@
         justify-content: space-between;
         transition: 0.6s;
 
-        z-index: 999;
 
         .header-container {
             width: 100%;
@@ -185,7 +184,7 @@
 }
 
 .cart-menu-container.active {
-    z-index: 999;
+    z-index: 1100;
 
     .bg-overlay {
         width: 55%;

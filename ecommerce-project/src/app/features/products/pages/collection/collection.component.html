@@ -1,12 +1,14 @@
-<app-navbar></app-navbar>
-<div class="header-container">
-    <div class="searchbar-container">
-        <app-searchbar></app-searchbar>
-    </div>
+<div style="width: 100%; background: white;">
+    <app-navbar></app-navbar>
+    <div class="header-container">
+        <div class="searchbar-container">
+            <input type="text" placeholder="Search">
+        </div>
 
-    <button class="filter-btn" mat-icon-button (click)="isActive.set(!isActive())">
-        <mat-icon class="material-symbols-outlined">filter_alt</mat-icon>
-    </button>
+        <button class="filter-btn" mat-icon-button (click)="isActive.set(!isActive())">
+            <mat-icon class="material-symbols-outlined">filter_alt</mat-icon>
+        </button>
+    </div>
 </div>
 <div class="collection-container">
     <div class="filter-container" [ngClass]="isActive() ? 'active' : ''">

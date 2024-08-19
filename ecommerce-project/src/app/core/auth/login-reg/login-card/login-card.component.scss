@@ -1,7 +1,4 @@
-$color-light: #fafafa;
-$color-dark: #212322;
-$color-sec: #c3c3c3;
-$bg-color: #bebebe;
+@import "../../../../../variables.scss";
 
 h3 {
     color: $color-sec;

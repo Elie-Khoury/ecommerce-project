@@ -13,7 +13,7 @@ footer {
         padding: 3% 0%;
 
         .footer-content {
-            width: 50%;
+            width: 70%;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             grid-gap: 20px;
@@ -25,15 +25,6 @@ footer {
                     color: $color-light;
                     font-weight: 400;
                 }
-            }
-        }
-
-        .btn-container {
-            cursor: pointer;
-
-            mat-icon {
-                width: 100%;
-                color: $color-light;
             }
         }
     }

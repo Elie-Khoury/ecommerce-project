@@ -13,6 +13,10 @@
     .logo-container {
         width: 5%;
 
+        @media screen and (max-width: 650px) {
+            width: 10%;
+        }
+
         img {
             width: 100%;
         }
@@ -24,14 +28,16 @@
         align-items: center;
         width: 25%;
 
+        @media screen and (max-width: 650px) {
+            display: none;
+        }
+
         a {
             position: relative;
 
             h3 {
                 cursor: pointer;
                 color: $color-dark;
-                font-weight: 600;
-                font-size: 0.85em;
             }
         }
 
@@ -57,6 +63,10 @@
 
     .search-bar {
         width: 30%;
+
+        @media screen and (max-width: 650px) {
+            width: 60%;
+        }
     }
 
     .nav-icons {
@@ -64,6 +74,10 @@
         justify-content: space-between;
         align-items: center;
         width: 10%;
+
+        @media screen and (max-width: 650px) {
+            width: 20%;
+        }
 
         .nav-icon {
             cursor: pointer;

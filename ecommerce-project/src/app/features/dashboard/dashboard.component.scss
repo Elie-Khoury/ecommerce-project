@@ -65,7 +65,7 @@
                     left: 50%;
                     transform: translate(-50%, -50%);
                     color: white;
-                    font-size: 2.5em;
+                    font-size: clamp(1.5em, 3vw, 3em);
                     font-weight: 200;
                     transition: opacity 0.5s;
                 }
@@ -165,11 +165,12 @@
         .cards-wrapper {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            gap: 10%;
 
             .card-container {
-                width: 25%;
+                width: clamp(200px, 25%, 250px);
                 border: 1.5px solid $color-dark;
                 border-radius: 20px;
                 position: relative;
@@ -216,6 +217,7 @@
             width: 70%;
             margin: auto;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
 
@@ -318,6 +320,9 @@
 
                     .sm-icon {
                         width: 20%;
+                        min-width: 60px;
+                        min-height: 60px;
+                        text-align: center;
                         padding: 5%;
                         border-radius: 50px;
                         border: 1.5px solid $color-dark;
@@ -365,4 +370,58 @@
             }
         }
     }
+}
+
+@media screen and (max-width: 950px) {
+    .dashboard-container {
+
+        .categories-container {
+            .container-wrapper {
+                .category-container {
+                    height: 30vh;
+                }
+
+                #clothing-cat {
+
+                    .women-container,
+                    .men-container {
+                        height: 30vh;
+                    }
+                }
+            }
+        }
+
+        .cards-container {
+            padding: 0;
+
+            .cards-wrapper {
+                flex-direction: column;
+                gap: 5em;
+            }
+        }
+
+        .newsletter-container {
+            .newsletter-wrapper {
+                gap: 5em;
+
+                .newsletter-content {
+                    width: 100%;
+                    text-align: center;
+                }
+
+                .social-media-container {
+                    width: 50%;
+                    margin-inline: auto;
+                    margin-top: 5%;
+
+                    .icons-container {
+                        .sm-icon {
+                            padding: 4%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
