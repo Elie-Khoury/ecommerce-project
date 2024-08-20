@@ -18,6 +18,7 @@ import { RouterModule } from "@angular/router";
         CommonModule,
         RouterModule,
         ReactiveFormsModule,
+        CoreModule
     ],
 })
 export class AuthModule {

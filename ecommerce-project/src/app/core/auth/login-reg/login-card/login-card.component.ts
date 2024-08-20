@@ -16,8 +16,8 @@ import { Store } from '@ngrx/store';
 export class LoginCardComponent {
 
   loginForm = this.fb.group({
-    username: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    Username: ['', [Validators.required, Validators.email]],
+    Password: ['', [Validators.required]],
   })
 
   constructor(

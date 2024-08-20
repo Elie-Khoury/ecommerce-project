@@ -42,12 +42,13 @@
                     <div class="left-container payment-details-content">
                         <h2>NAME</h2>
                         <h2>CARD #</h2>
+                        <h2>EXPIRATION</h2>
+                        <h2>COUNTRY</h2>
                     </div>
                     <div class="right-container payment-details-content">
                         <h3 [appAddClassIfRequired]="userDetails.fullName">{{userDetails.fullName}}</h3>
                         <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.cardNum}}</h3>
                         <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.expiration}}</h3>
-                        <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.cvc}}</h3>
                         <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.country}}</h3>
                     </div>
                 </div>

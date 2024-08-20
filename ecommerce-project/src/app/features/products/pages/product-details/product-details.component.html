@@ -19,7 +19,9 @@
         </button>
     </div>
 </div>
-<app-products-swiper [toDisplay]="selectedProduct.category" [excluded]="selectedProduct"></app-products-swiper>
+<section style="margin-left: 5%;">
+    <app-products-swiper [toDisplay]="selectedProduct.category" [excluded]="selectedProduct"></app-products-swiper>
+</section>
 }
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 <hr class="custom-divider">

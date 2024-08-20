@@ -1,6 +1,34 @@
 @import "../../../../variables.scss";
 @import "../../../../default-styles.scss";
 
+@keyframes closeCart {
+    0% {
+        z-index: 9999;
+    }
+
+    99% {
+        z-index: 9999;
+    }
+
+    100% {
+        z-index: -1;
+    }
+}
+
+@keyframes openCart {
+    0% {
+        z-index: -1;
+    }
+
+    1% {
+        z-index: 9999;
+    }
+
+    100% {
+        z-index: 9999;
+    }
+}
+
 .cart-menu-container {
     width: 100%;
     height: 100vh;
@@ -8,7 +36,7 @@
     position: fixed;
     top: 0%;
     left: 0%;
-    z-index: -1;
+    animation: closeCart 0.6s forwards;
 
     .bg-overlay {
         width: 0%;
@@ -28,7 +56,22 @@
         flex-direction: column;
         justify-content: space-between;
         transition: 0.6s;
+        z-index: inherit;
 
+        @media screen and (max-width: 1200px) {
+            width: 60%;
+            right: -60%;
+        }
+
+        @media screen and (max-width: 950px) {
+            width: 80%;
+            right: -80%;
+        }
+
+        @media screen and (max-width: 650px) {
+            width: 100%;
+            right: -100%;
+        }
 
         .header-container {
             width: 100%;
@@ -184,10 +227,23 @@
 }
 
 .cart-menu-container.active {
-    z-index: 1100;
+    animation: openCart 0.6s forwards;
 
     .bg-overlay {
         width: 55%;
+
+        @media screen and (max-width: 1200px) {
+            width: 40%;
+        }
+
+        @media screen and (max-width: 950px) {
+            width: 20%;
+
+        }
+
+        @media screen and (max-width: 650px) {
+            display: none;
+        }
     }
 
     .cart-menu {

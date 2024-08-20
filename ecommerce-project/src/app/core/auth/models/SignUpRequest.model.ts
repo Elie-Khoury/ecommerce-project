@@ -3,5 +3,5 @@ export interface ISignUpRequest {
     Lastname?: string | null,
     Email?: string | null,
     Password?: string | null,
-    Rolename?: string | null,
+    RoleName?: string | null,
 }

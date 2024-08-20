@@ -20,7 +20,7 @@ export class RegCardComponent {
     Lastname: ['', [Validators.required, CustomValidators.NameValidator]],
     Email: ['', [Validators.required, Validators.email]],
     Password: ['', [Validators.required, Validators.minLength(6)]],
-    Rolename: ['', [Validators.required, CustomValidators.RoleValidator]]
+    RoleName: ['', [Validators.required, CustomValidators.RoleValidator]]
   })
 
   constructor(

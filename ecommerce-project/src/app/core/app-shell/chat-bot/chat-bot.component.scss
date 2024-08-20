@@ -38,14 +38,14 @@ $secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
     }
 
     100% {
-        transform: translateY(100%);
+        transform: translateY(120%);
         display: none;
     }
 }
 
 @keyframes openChatbox {
     0% {
-        transform: translateY(100%);
+        transform: translateY(120%);
     }
 
     100% {
@@ -301,7 +301,6 @@ $secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom-left-radius: 50px;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 
 
