@@ -2,7 +2,7 @@
     <app-navbar></app-navbar>
     <div class="header-container">
         <div class="searchbar-container">
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="onValueChange($event)">
         </div>
 
         <button class="filter-btn" mat-icon-button (click)="isActive.set(!isActive())">
@@ -18,7 +18,8 @@
     <div class="content-container" [ngClass]="isActive() ? 'active' : ''">
         <div class="products-container">
             @if(formValues.sortBy !== 'category') {
-            <app-products [products]="products" [sortBy]="formValues.sortBy" [price]="formValues.price"></app-products>
+            <app-products [products]="filteredProducts" [sortBy]="formValues.sortBy"
+                [price]="formValues.price"></app-products>
             }
             @else if(formValues.category.length > 0) {
             @for(category of formValues.category; track category){

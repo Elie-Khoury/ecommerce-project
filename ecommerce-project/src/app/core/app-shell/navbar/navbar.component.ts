@@ -1,4 +1,4 @@
-import { Component, computed, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, computed, Input, OnDestroy, OnInit, signal } from '@angular/core';
 import { IImageUrls } from './models/ImgUrls.model';
 import { select, Store } from '@ngrx/store';
 import { AuthState } from '../../auth/state/reducers/auth.reducer';
@@ -26,7 +26,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.badgeClass = colorClass;
   }
 
+  readonly panelOpenState = signal(false);
+
   isLogin: boolean = false;
+  isHamActive: boolean = false;
 
   imgUrls!: IImageUrls;
   user$!: Observable<User | null>;
@@ -47,6 +50,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   toggleActive() {
     this.cartService.toggleActive();
+  }
+
+  toggleHamActive() {
+    this.isHamActive = !this.isHamActive;
   }
 
   ngOnInit(): void {

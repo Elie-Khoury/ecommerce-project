@@ -12,6 +12,10 @@ footer {
         justify-content: space-between;
         padding: 3% 0%;
 
+        @media screen and (max-width: 650px) {
+            padding: 5% 0%;
+        }
+
         .footer-content {
             width: 70%;
             display: grid;

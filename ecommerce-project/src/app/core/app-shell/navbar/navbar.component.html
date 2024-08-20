@@ -1,4 +1,67 @@
 <nav class="navbar">
+    <div *ngIf="!isLogin" class="off-screen-menu" [ngClass]="{'active': isHamActive}">
+        <a routerLink="/home">
+            <h2>HOME</h2>
+        </a>
+        <a routerLink="/collection">
+            <h2>MEN</h2>
+        </a>
+        <a routerLink="/collection">
+            <h2>WOMEN</h2>
+        </a>
+        <a routerLink="/collection">
+            <h2>COLLECTION</h2>
+        </a>
+        <div class="nav-icon" (click)="toggleActive()">
+            <mat-icon class="material-symbols-outlined custom-badge" [matBadgeHidden]="cart().length == 0"
+                [matBadge]="cart().length" matBadgePosition="after">
+                shopping_bag
+            </mat-icon>
+            <h2>Cart</h2>
+        </div>
+
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <div class="nav-icon">
+                            <mat-icon class="material-symbols-outlined">account_circle</mat-icon>
+                            <h2>Account</h2>
+                        </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <hr>
+                <div class="input-container">
+                    @if(user$ | async){
+                    <a routerLink="/profile">
+                        <div class="panel-content">
+                            <mat-icon>manage_accounts</mat-icon>
+                            <span>Manage Account</span>
+                        </div>
+                    </a>
+                    <div class="panel-content" (click)="onLogout()">
+                        <mat-icon>logout</mat-icon>
+                        <span>Logout</span>
+                    </div>
+                    }
+                    @else{
+                    <a routerLink="/login">
+                        <div class="panel-content">
+                            <mat-icon>login</mat-icon>
+                            <span>Login</span>
+                        </div>
+                    </a>
+                    }
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="bg-overlay" (click)="toggleHamActive()" [ngClass]="{'active': isHamActive}"></div>
+    <div class="ham-menu" (click)="toggleHamActive()" [ngClass]="{'active': isHamActive}">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <a class="logo-container" routerLink="/home">
         <img [src]="imgUrls.logoUrl" alt="">
     </a>

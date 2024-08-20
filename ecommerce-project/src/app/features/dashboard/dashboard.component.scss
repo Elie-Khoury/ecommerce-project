@@ -48,8 +48,11 @@
                 background: hsla(0, 0%, 0%, 0.55);
                 cursor: pointer;
                 transition: background 0.5s;
-
                 position: relative;
+
+                @media screen and (max-width: 950px) {
+                    height: 30vh;
+                }
 
                 &:hover {
                     background: none;
@@ -98,6 +101,10 @@
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
+
+                    @media screen and (max-width: 950px) {
+                        height: 30vh;
+                    }
 
                     h2 {
                         position: absolute;
@@ -162,12 +169,21 @@
         width: 100%;
         padding: 5% 10%;
 
+        @media screen and (max-width: 950px) {
+            padding: 0%;
+        }
+
         .cards-wrapper {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             gap: 10%;
+
+            @media screen and (max-width: 950px) {
+                flex-direction: column;
+                gap: 5em;
+            }
 
             .card-container {
                 width: clamp(200px, 25%, 250px);
@@ -221,8 +237,21 @@
             justify-content: space-between;
             align-items: center;
 
+            @media screen and (max-width: 950px) {
+                gap: 2em;
+            }
+
+            @media screen and (max-width: 500px) {
+                width: 85%;
+            }
+
             .newsletter-content {
                 width: 50%;
+
+                @media screen and (max-width: 950px) {
+                    width: 100%;
+                    text-align: center;
+                }
 
                 .newsletter-title {
                     margin-bottom: 7%;
@@ -311,6 +340,12 @@
                 width: 30%;
                 text-align: center;
 
+                @media screen and (max-width: 950px) {
+                    width: 50%;
+                    margin-inline: auto;
+                    margin-top: 5%;
+                }
+
                 .icons-container {
                     width: 100%;
                     display: flex;
@@ -330,6 +365,14 @@
                         cursor: pointer;
                         transition: all 0.5s;
                         z-index: 0;
+
+                        @media screen and (max-width: 950px) {
+                            padding: 4%;
+                        }
+
+                        @media screen and (max-width: 650px) {
+                            padding: 6%;
+                        }
 
                         &:hover {
                             border-color: $color-sec;
@@ -370,58 +413,4 @@
             }
         }
     }
-}
-
-@media screen and (max-width: 950px) {
-    .dashboard-container {
-
-        .categories-container {
-            .container-wrapper {
-                .category-container {
-                    height: 30vh;
-                }
-
-                #clothing-cat {
-
-                    .women-container,
-                    .men-container {
-                        height: 30vh;
-                    }
-                }
-            }
-        }
-
-        .cards-container {
-            padding: 0;
-
-            .cards-wrapper {
-                flex-direction: column;
-                gap: 5em;
-            }
-        }
-
-        .newsletter-container {
-            .newsletter-wrapper {
-                gap: 5em;
-
-                .newsletter-content {
-                    width: 100%;
-                    text-align: center;
-                }
-
-                .social-media-container {
-                    width: 50%;
-                    margin-inline: auto;
-                    margin-top: 5%;
-
-                    .icons-container {
-                        .sm-icon {
-                            padding: 4%;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 }

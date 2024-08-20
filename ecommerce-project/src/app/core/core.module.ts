@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './app-shell/navbar/navbar.component';
 import { AppRoutingModule } from '../app-routing.module';
@@ -29,6 +30,7 @@ import { ChatBotComponent } from './app-shell/chat-bot/chat-bot.component';
     MatMenuModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatExpansionModule,
     SharedModule
   ],
   exports: [
@@ -37,5 +39,6 @@ import { ChatBotComponent } from './app-shell/chat-bot/chat-bot.component';
     FooterComponent,
     ChatBotComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CoreModule { }

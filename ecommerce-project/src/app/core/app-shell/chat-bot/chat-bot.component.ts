@@ -10,7 +10,7 @@ export class ChatBotComponent implements AfterViewInit {
     openButton: HTMLButtonElement | null;
     chatBox: HTMLElement | null;
     sendButton: HTMLButtonElement | null;
-    bgOverlay: HTMLElement | null;
+    closeButton: HTMLButtonElement | null;
   };
   state: boolean = false;
   messages: { name: string; message: string }[] = [{
@@ -25,16 +25,16 @@ export class ChatBotComponent implements AfterViewInit {
       openButton: document.querySelector('.chatbox__button'),
       chatBox: document.querySelector('.chatbox__support'),
       sendButton: document.querySelector('.send__button'),
-      bgOverlay: document.querySelector('.bg-overlay')
+      closeButton: document.querySelector('.close-btn')
     };
 
     this.display();
   }
 
   display() {
-    const { openButton, chatBox, sendButton, bgOverlay } = this.args;
+    const { openButton, chatBox, sendButton, closeButton } = this.args;
 
-    if (openButton && chatBox && sendButton && bgOverlay) {
+    if (openButton && chatBox && sendButton && closeButton) {
       openButton.addEventListener('click', () => {
         this.toggleState(chatBox)
         if (this.state) {
@@ -42,7 +42,7 @@ export class ChatBotComponent implements AfterViewInit {
         }
       });
       sendButton.addEventListener('click', () => this.onSendButton(chatBox));
-      bgOverlay.addEventListener('click', () => this.toggleState(chatBox));
+      closeButton.addEventListener('click', () => this.toggleState(chatBox));
 
       const node = chatBox.querySelector('input');
       if (node) {
