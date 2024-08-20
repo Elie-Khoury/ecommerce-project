@@ -1,7 +1,4 @@
-$color-light: #fafafa;
-$color-dark: #212322;
-$color-sec: #c3c3c3;
-$bg-color: #bebebe;
+@import "../../../../../variables.scss";
 
 h3 {
     color: $color-sec;
@@ -23,6 +20,32 @@ h3 {
     transform: translate(-50%, -50%);
     align-items: center;
     padding: 4% 5%;
+
+    @media screen and (max-width: 1200px) {
+        width: 40%;
+        padding: 6% 7%;
+    }
+
+    @media screen and (max-width: 1100px) {
+        width: 50%;
+        padding: 6% 7%;
+    }
+
+    @media screen and (max-width: 900px) {
+        width: 80%;
+        height: 80vh;
+        padding: 15% 15%;
+        position: fixed;
+        top: 20vh;
+        left: 0%;
+        margin-inline: 10% 10%;
+        transform: translate(0%, 0%);
+    }
+
+    @media screen and (max-width: 650px) {
+        width: 100%;
+        margin-inline: 0%;
+    }
 }
 
 .content-wrapper {
@@ -32,6 +55,11 @@ h3 {
     justify-content: center;
     align-items: flex-start;
     gap: 50px;
+
+    @media screen and (max-width: 900px) {
+        height: 60vh;
+        gap: 20%;
+    }
 }
 
 .content-header {
@@ -71,6 +99,10 @@ button {
     border: none;
     padding: 4% 0%;
     margin-top: 30px;
+
+    @media screen and (max-width: 900px) {
+        margin-top: 30%;
+    }
 
     h2 {
         color: $color-light;

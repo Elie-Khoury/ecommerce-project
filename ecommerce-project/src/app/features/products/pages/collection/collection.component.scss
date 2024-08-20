@@ -1,18 +1,38 @@
 @import "../../../../../variables.scss";
 @import "../../../../../default-styles.scss";
 
+@keyframes displayFilter {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}
+
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1% 2%;
     width: 80%;
-    margin: 7% 0% 4% 10%;
+    margin: 7% 10% 4% 10%;
     background: $bg-color;
 
     .searchbar-container {
-        width: 30%;
+        width: 40%;
         height: 100%;
+
+        input {
+            width: 100%;
+            background: $bg-color;
+            border: none;
+            border-bottom: 1px solid $color-sec;
+            outline: none;
+            padding: 0% 0% 1% 2%;
+            color: $color-dark;
+        }
     }
 
     .filter-btn {
@@ -43,31 +63,63 @@
     position: relative;
     display: flex;
     margin-bottom: 5%;
+    width: 100%;
+
+    @media screen and (max-width: 650px) {
+        flex-direction: column;
+    }
 
     .filter-container {
         width: 0%;
         height: 100vh;
         overflow-y: auto;
-        transition: width 0.6s ease-in-out;
+        transition: all 0.6s ease-in-out;
+
+        @media screen and (max-width: 650px) {
+            margin-inline: auto;
+            display: none;
+            margin-bottom: 5%;
+        }
 
         &.active {
             width: 20%;
+
+            @media screen and (max-width: 950px) {
+                width: 30%;
+            }
+
+            @media screen and (max-width: 650px) {
+                height: auto;
+                display: block;
+                animation: displayFilter 0.6s ease-in-out forwards;
+            }
         }
     }
 
     .content-container {
         width: 100%;
-        transition: width 0.6s ease-in-out;
+        transition: all 0.6s ease-in-out;
 
         &.active {
             width: 80%;
+
+            @media screen and (max-width: 650px) {
+                width: 100%;
+            }
+
+            .products-container {
+                width: 90%;
+
+                @media screen and (max-width: 650px) {
+                    width: 80%;
+                }
+            }
         }
-
-
 
         .products-container {
             width: 80%;
             margin-inline: auto;
+            transition: width 0.6s ease-in-out;
         }
     }
 

@@ -78,7 +78,7 @@ export class AuthEffects {
             .pipe(
                 ofType(AuthActions.signUp),
                 mergeMap((action) => {
-                    const register$ = action.req.Rolename?.toLowerCase() == 'admin' ?
+                    const register$ = action.req.RoleName?.toLowerCase() == 'admin' ?
                         this.authService.registerAdmin(action.req) :
                         this.authService.registerUser(action.req);
 

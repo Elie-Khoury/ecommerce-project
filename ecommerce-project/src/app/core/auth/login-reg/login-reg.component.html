@@ -1,5 +1,9 @@
 <div class="container" [ngStyle]="{backgroundImage: 'url(' + bgImg + ')'}">
-    <app-navbar></app-navbar>
+    <div class="img-container">
+        <a routerLink="/home">
+            <img src="assets/logo-light.svg" alt="">
+        </a>
+    </div>
     <div class="card" *ngIf="loginPage">
         <app-login-card></app-login-card>
     </div>

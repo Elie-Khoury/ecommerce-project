@@ -1,6 +1,8 @@
 <div class="search-input-container" cdkOverlayOrigin #overlayPosition="cdkOverlayOrigin"
   [ngClass]="overlayOpen() ? 'mat-elevation-z2' : ''">
-  <mat-icon class="material-symbols-outlined">search</mat-icon>
+  <div class="icon-container">
+    <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=212322" alt="">
+  </div>
   <input type="text" placeholder="" [formControl]="searchTerm" (click)="overlayOpen.set(true)" />
   <!-- (keydown.ENTER)="onSearch(searchTerm.value)"  -->
   @if(searchTerm.value != ''){

@@ -1,4 +1,4 @@
 export interface ILoginRequest {
-    username?: string | null;
-    password?: string | null;
+    Username?: string | null;
+    Password?: string | null;
 }

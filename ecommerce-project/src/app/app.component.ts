@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   ProductSubscribtion!: Subscription;
 
   showFooter: boolean = true;
+  showChatBot: boolean = true;
 
   constructor(
     private store: Store,
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
       const excludedRoutes = ['/login', '/profile/account-details', '/profile/payment-details'];
       if (excludedRoutes.includes(currentRoute)) {
         this.showFooter = false;
+        this.showChatBot = false;
       }
     });
   }

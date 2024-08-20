@@ -10,6 +10,7 @@ import { User } from '../models/User.model';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { IRefreshResponse } from '../models/RefreshResponse.model';
+import { consumerAfterComputation } from '@angular/core/primitives/signals';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,7 @@ export class AuthenticationService {
   REFRESH_API: string = env.AUTH_API + "User/RefreshToken()";
 
   registerUser(data: ISignUpRequest): Observable<ISignUpResponse> {
+    console.log(data);
     return this.http.post<ISignUpResponse>(this.REG_USER_API, data);
   }
 
@@ -32,6 +34,7 @@ export class AuthenticationService {
   }
 
   login(req: ILoginRequest): Observable<ILoginResponse> {
+    console.log(req);
     return this.http.post<ILoginResponse>(this.LOGIN_API, req);
   }
 

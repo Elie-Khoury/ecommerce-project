@@ -48,8 +48,11 @@
                 background: hsla(0, 0%, 0%, 0.55);
                 cursor: pointer;
                 transition: background 0.5s;
-
                 position: relative;
+
+                @media screen and (max-width: 950px) {
+                    height: 30vh;
+                }
 
                 &:hover {
                     background: none;
@@ -65,7 +68,7 @@
                     left: 50%;
                     transform: translate(-50%, -50%);
                     color: white;
-                    font-size: 2.5em;
+                    font-size: clamp(1.5em, 3vw, 3em);
                     font-weight: 200;
                     transition: opacity 0.5s;
                 }
@@ -98,6 +101,10 @@
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
+
+                    @media screen and (max-width: 950px) {
+                        height: 30vh;
+                    }
 
                     h2 {
                         position: absolute;
@@ -162,14 +169,24 @@
         width: 100%;
         padding: 5% 10%;
 
+        @media screen and (max-width: 950px) {
+            padding: 0%;
+        }
+
         .cards-wrapper {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            gap: 10%;
+
+            @media screen and (max-width: 950px) {
+                flex-direction: column;
+                gap: 5em;
+            }
 
             .card-container {
-                width: 25%;
+                width: clamp(200px, 25%, 250px);
                 border: 1.5px solid $color-dark;
                 border-radius: 20px;
                 position: relative;
@@ -216,11 +233,25 @@
             width: 70%;
             margin: auto;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
 
+            @media screen and (max-width: 950px) {
+                gap: 2em;
+            }
+
+            @media screen and (max-width: 500px) {
+                width: 85%;
+            }
+
             .newsletter-content {
                 width: 50%;
+
+                @media screen and (max-width: 950px) {
+                    width: 100%;
+                    text-align: center;
+                }
 
                 .newsletter-title {
                     margin-bottom: 7%;
@@ -309,6 +340,12 @@
                 width: 30%;
                 text-align: center;
 
+                @media screen and (max-width: 950px) {
+                    width: 50%;
+                    margin-inline: auto;
+                    margin-top: 5%;
+                }
+
                 .icons-container {
                     width: 100%;
                     display: flex;
@@ -318,6 +355,9 @@
 
                     .sm-icon {
                         width: 20%;
+                        min-width: 60px;
+                        min-height: 60px;
+                        text-align: center;
                         padding: 5%;
                         border-radius: 50px;
                         border: 1.5px solid $color-dark;
@@ -325,6 +365,14 @@
                         cursor: pointer;
                         transition: all 0.5s;
                         z-index: 0;
+
+                        @media screen and (max-width: 950px) {
+                            padding: 4%;
+                        }
+
+                        @media screen and (max-width: 650px) {
+                            padding: 6%;
+                        }
 
                         &:hover {
                             border-color: $color-sec;

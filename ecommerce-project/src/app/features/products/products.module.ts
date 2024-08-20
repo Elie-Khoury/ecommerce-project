@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CoreModule } from '../../core/core.module';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
@@ -30,6 +30,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ],
     imports: [
         CommonModule,
+        FormsModule,
         RouterModule,
         CoreModule,
         SharedModule,

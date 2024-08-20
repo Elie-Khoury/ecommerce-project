@@ -5,6 +5,7 @@ import { LoginCardComponent } from "./login-reg/login-card/login-card.component"
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CoreModule } from "../core.module";
+import { RouterModule } from "@angular/router";
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { CoreModule } from "../core.module";
     ],
     imports: [
         CommonModule,
+        RouterModule,
         ReactiveFormsModule,
         CoreModule
     ],

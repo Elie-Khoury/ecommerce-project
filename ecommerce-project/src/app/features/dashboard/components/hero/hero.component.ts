@@ -18,6 +18,7 @@ export class HeroComponent implements OnInit {
   imgUrls!: { id: number, title: string, titleColor: string, url: string, alt: string }[];
   arrImgUrl!: string;
   sizeBgUrl!: string;
+  mobileHeroImg!: string;
 
   constructor(private store: Store<AuthState>) {
     this.user$ = this.store.select(selectUser);
@@ -57,5 +58,7 @@ export class HeroComponent implements OnInit {
     this.arrImgUrl = 'assets/arrow-btn.svg';
 
     this.sizeBgUrl = 'assets/sizes-bg.svg';
+
+    this.mobileHeroImg = 'assets/mobile-hero.svg';
   }
 }
