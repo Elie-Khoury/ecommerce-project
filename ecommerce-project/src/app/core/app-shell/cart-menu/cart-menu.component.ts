@@ -1,6 +1,7 @@
 import { Component, computed, OnInit } from '@angular/core';
 import { CartService } from './services/cart.service';
 import { IProduct } from '../../../features/products/models/Product.model';
+import { SnackbarService } from '../../../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-cart-menu',
@@ -26,13 +27,18 @@ export class CartMenuComponent implements OnInit {
     return this.cartService.totalPrice();
   })
 
-  constructor(private cartService: CartService) { }
+  constructor(
+    private snackbarService: SnackbarService,
+    private cartService: CartService
+  ) { }
 
   toggleActive() {
     this.cartService.toggleActive();
   }
 
   confirmOrder() {
+    this.toggleActive();
+    this.snackbarService.showSnackBar('Order Confirmed!');
     this.cartService.confirmOrder();
   }
 

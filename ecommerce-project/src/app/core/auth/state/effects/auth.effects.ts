@@ -66,8 +66,13 @@ export class AuthEffects {
     loginSuccess$ = createEffect(() =>
         this.actions$.pipe(
             ofType(AuthActions.loginSuccess),
-            tap(() => {
-                this.router.navigate(['/home']);
+            tap((e) => {
+                if (e.user.isAdmin) {
+                    this.router.navigate(['/admin']);
+                }
+                else {
+                    this.router.navigate(['/home']);
+                }
             })
         ),
         { dispatch: false }

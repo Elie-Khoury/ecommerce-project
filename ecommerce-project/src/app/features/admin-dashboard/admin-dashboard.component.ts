@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import * as fromAuthActions from '../../core/auth/state/actions/auth.actions';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -7,5 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AdminDashboardComponent {
 
+  constructor(private store: Store) { }
 
+  onLogout() {
+    this.store.dispatch(fromAuthActions.logout());
+  }
 }
