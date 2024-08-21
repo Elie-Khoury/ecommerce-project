@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as AuthActions from '../actions/auth.actions'
 import { Router } from '@angular/router';
@@ -7,10 +7,13 @@ import { AuthenticationService } from '../../services/authentication.service';
 import { catchError, map, mergeMap, of, tap } from 'rxjs';
 import { LoginRegComponent } from '../../login-reg/login-reg.component';
 import { User } from '../../models/User.model';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 
 @Injectable()
 export class AuthEffects {
+
+    snackbar = inject(SnackbarService);
 
     autologin$ = createEffect(() =>
         this.actions$.pipe(
@@ -96,11 +99,13 @@ export class AuthEffects {
             )
     );
 
+
     signUpSuccess$ = createEffect(() =>
         this.actions$.pipe(
             ofType(AuthActions.signUpSuccess),
             tap(() => {
-                window.alert('You have successfully signed up!');
+                this.snackbar.showSnackBar('Sign Up Successful');
+                location.reload();
             })
         ),
         { dispatch: false }
