@@ -18,6 +18,7 @@ import { DashboardModule } from './features/dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
 import { ProductsModule } from './features/products/products.module';
 import { ProfileModule } from './features/profile/profile.module';
+import { AdminModule } from './features/admin-dashboard/admin.module';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ProfileModule } from './features/profile/profile.module';
     ProductsModule,
     ProfileModule,
     SharedModule,
+    AdminModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
