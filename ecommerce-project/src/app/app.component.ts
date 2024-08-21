@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
 
     this.router.events.subscribe(() => {
       const currentRoute = this.router.url;
-      const excludedRoutes = ['/login', '/profile/account-details', '/profile/payment-details'];
+      const excludedRoutes = ['/login', '/profile/account-details', '/profile/payment-details', '/admin'];
       if (excludedRoutes.includes(currentRoute)) {
         this.showFooter = false;
         this.showChatBot = false;
