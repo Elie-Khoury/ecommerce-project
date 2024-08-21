@@ -124,8 +124,6 @@ export class CartService {
   }
 
   confirmOrder() {
-    window.alert("Your order has been confirmed!");
-
     this.cart.set([]);
 
     let user = JSON.parse(localStorage.getItem("user")!);

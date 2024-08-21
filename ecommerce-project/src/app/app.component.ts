@@ -35,6 +35,10 @@ export class AppComponent implements OnInit {
         this.showFooter = false;
         this.showChatBot = false;
       }
+      else {
+        this.showFooter = true;
+        this.showChatBot = true;
+      }
     });
   }
 

@@ -9,10 +9,11 @@ import { ProductDetailsComponent } from './features/products/pages/product-detai
 import { AccountDetailsComponent } from './features/profile/pages/account-details/account-details.component';
 import { PaymentDetailsComponent } from './features/profile/pages/payment-details/payment-details.component';
 import { AdminDashboardComponent } from './features/admin-dashboard/admin-dashboard.component';
+import { adminGuard } from './core/auth/services/admin.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'admin', component: AdminDashboardComponent },
+  { path: 'admin', component: AdminDashboardComponent, canActivate: [adminGuard] },
   { path: 'home', component: DashboardComponent },
   { path: 'login', component: LoginRegComponent },
   { path: 'collection', component: CollectionComponent },

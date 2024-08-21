@@ -35,11 +35,11 @@
 
             <input placeholder="Password" type="password" name="Password" id="Password" formControlName="Password">
 
-            <small *ngIf="regForm.get('Rolename')?.errors?.['invalidRole'] && regForm.get('Rolename')?.touched">
+            <small *ngIf="regForm.get('RoleName')?.errors?.['invalidRole'] && regForm.get('RoleName')?.touched">
                 Please Enter a valid role.
             </small>
 
-            <input placeholder="Rolename" type="text" name="Rolename" id="Rolename" formControlName="Rolename">
+            <input placeholder="RoleName" type="text" name="RoleName" id="RoleName" formControlName="RoleName">
 
             <button type="submit" [disabled]="regForm.invalid">
                 <h2>Sign Up</h2>

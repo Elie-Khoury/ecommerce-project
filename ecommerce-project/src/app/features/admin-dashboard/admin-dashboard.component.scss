@@ -1,0 +1,26 @@
+@import "../../../variables.scss";
+
+.header-container {
+    width: 80%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5%;
+
+    button {
+
+        background: none;
+        border: none;
+        outline: none;
+
+        h2 {
+            cursor: pointer;
+            transition: color 0.3s;
+
+            &:hover {
+                color: $color-sec;
+            }
+        }
+    }
+}
