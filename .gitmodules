@@ -1,0 +1,3 @@
+[submodule "ecommerce-chat-bot"]
+	path = ecommerce-chat-bot
+	url = https://github.com/Elie-Khoury/ecommerce-chat-bot.git
