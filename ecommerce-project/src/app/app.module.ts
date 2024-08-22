@@ -39,9 +39,7 @@ import { AdminModule } from './features/admin-dashboard/admin.module';
     CoreModule,
     DashboardModule,
     ProductsModule,
-    ProfileModule,
     SharedModule,
-    AdminModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },

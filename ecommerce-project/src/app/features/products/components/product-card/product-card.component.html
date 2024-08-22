@@ -2,7 +2,7 @@
     <button class="add-btn" mat-icon-button (click)="addToCart(product)">
         <mat-icon class="material-symbols-outlined">add_circle</mat-icon>
     </button>
-    <a [routerLink]="['/collection/product', product.id]">
+    <a routerLink="/collection/product/{{product.id}}">
         <div class="img-container">
             <img [src]="product.image" [alt]="product.title">
         </div>

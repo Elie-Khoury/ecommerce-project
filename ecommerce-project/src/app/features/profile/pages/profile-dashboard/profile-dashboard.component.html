@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="container-wrapper">
+        <div class="section-details" id="account-details">
+            <div class="content-wrapper">
+                <div class="title-container">
+                    <h1>Account Details</h1>
+                </div>
+                <div class="details-content">
+                    <div class="left-container account-details-content">
+                        <h2>NAME</h2>
+                        <h2>SURNAME</h2>
+                        <h2>E-MAIL</h2>
+                        <h2>PHONE</h2>
+                        <h2>ADDRESS</h2>
+                        <h2>STREET</h2>
+                        <h2>BUILDING #</h2>
+                    </div>
+                    <div class="right-container account-details-content">
+                        <h3 [appAddClassIfRequired]="userDetails.name">{{userDetails.name}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.surname">{{userDetails.surname}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.email">{{userDetails.email}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.phone">{{userDetails.phone}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.address">{{userDetails.address}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.street">{{userDetails.street}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.building">{{userDetails.building}}</h3>
+                    </div>
+                </div>
+                <a routerLink="/profile/account-details" class="account-btn">
+                    <button class="custom-btn">
+                        <h2>Edit Details</h2>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="section-details" id="payment-details">
+            <div class="content-wrapper">
+                <div class="title-container">
+                    <h1>Payment Details</h1>
+                </div>
+                <div class="details-content">
+                    <div class="left-container payment-details-content">
+                        <h2>NAME</h2>
+                        <h2>CARD #</h2>
+                        <h2>EXPIRATION</h2>
+                        <h2>COUNTRY</h2>
+                    </div>
+                    <div class="right-container payment-details-content">
+                        <h3 [appAddClassIfRequired]="userDetails.fullName">{{userDetails.fullName}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.cardNum}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.expiration}}</h3>
+                        <h3 [appAddClassIfRequired]="userDetails.cardNum">{{userDetails.country}}</h3>
+                    </div>
+                </div>
+                <a routerLink="/profile/payment-details" class="payment-btn">
+                    <button class="custom-btn">
+                        <h2>Edit Payment Method</h2>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
