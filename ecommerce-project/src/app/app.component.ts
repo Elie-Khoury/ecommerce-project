@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import * as fromAuthActions from './core/auth/state/actions/auth.actions';
 import { IProduct } from './features/products/models/Product.model';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -17,8 +17,9 @@ export class AppComponent implements OnInit {
 
   ProductSubscribtion!: Subscription;
 
-  showFooter: boolean = true;
+  showNavbar: boolean = true;
   showChatBot: boolean = true;
+  showFooter: boolean = true;
 
   constructor(
     private store: Store,
@@ -31,13 +32,20 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe(() => {
       const currentRoute = this.router.url;
       const excludedRoutes = ['/login', '/profile/account-details', '/profile/payment-details', '/admin'];
+
       if (excludedRoutes.includes(currentRoute)) {
         this.showFooter = false;
         this.showChatBot = false;
+        this.showNavbar = false;
       }
       else {
         this.showFooter = true;
         this.showChatBot = true;
+        this.showNavbar = true;
+      }
+
+      if (currentRoute == '/home') {
+        this.showNavbar = false;
       }
     });
   }
