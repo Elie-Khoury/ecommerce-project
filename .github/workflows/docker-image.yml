@@ -9,11 +9,20 @@ on:
 jobs:
 
   build:
-
+    name: push docker image to docker hub
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+    - name: Login to docker hub
+      id: docker-hub
+      env:
+        username: ${{secrets.DOCKER_USERNAME}}
+        password: $${{secrets.DOCKER_PASSWORD}}
+      run: docker login -u $username -p $password
     - name: Build the Docker image
-      run: docker build . --file ecommerce-project\Dockerfile --tag ecommerce-app:latest
-  
+      id: build-docker-image
+      run: docker build . --file ecommerce-project\Dockerfile --tag elieckhoury/ecommerce-app:latest
+    - name: push the docker image
+      id: push-docker-image
+      run: docker push ${{secrets.DOCKER_USERNAME}}/ecommerce-app:latest
