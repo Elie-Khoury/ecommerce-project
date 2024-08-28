@@ -25,4 +25,4 @@ jobs:
       run: docker build -t ecommerce-app:latest ecommerce-project 
     - name: push the docker image
       id: push-docker-image
-      run: docker push ${{secrets.DOCKER_USERNAME}}/ecommerce-app:latest
+      run: docker push elieckhoury/ecommerce-app:latest
