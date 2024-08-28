@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-    name: push docker image to docker hub
+    name: Push Docker image to Dockerhub
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +23,6 @@ jobs:
     - name: Build the Docker image
       id: build-docker-image
       run: docker build -t ecommerce-app:latest ecommerce-project 
-    - name: push the docker image
+    - name: Push the Docker image
       id: push-docker-image
-      run: docker push elieckhoury/ecommerce-app:latest
+      run: docker push ecommerce-app:latest
